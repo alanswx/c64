@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */; };
+		8D0C4E8E0486CD37000505A6 /* main.nib in Resources */ = {isa = PBXBuildFile; fileRef = 02345980000FD03B11CA0E72 /* main.nib */; };
+		8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20286C33FDCF999611CA2CEA /* Carbon.framework */; };
+		C60B50F61C1F24D400E97A56 /* SID.c in Sources */ = {isa = PBXBuildFile; fileRef = C60B50F31C1F24D400E97A56 /* SID.c */; };
+		F77D15CF0CEF6A58000800A4 /* ColorDrawing.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15B90CEF6A58000800A4 /* ColorDrawing.c */; };
+		F77D15D00CEF6A58000800A4 /* CombugConsole.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15BA0CEF6A58000800A4 /* CombugConsole.c */; };
+		F77D15D10CEF6A58000800A4 /* CombugWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15BB0CEF6A58000800A4 /* CombugWindow.c */; };
+		F77D15D30CEF6A58000800A4 /* DeviceMenu.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15BD0CEF6A58000800A4 /* DeviceMenu.c */; };
+		F77D15D40CEF6A58000800A4 /* DrawingSetup.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15BE0CEF6A58000800A4 /* DrawingSetup.c */; };
+		F77D15D50CEF6A58000800A4 /* NormalTextSmoothwSpr8bit.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15BF0CEF6A58000800A4 /* NormalTextSmoothwSpr8bit.c */; };
+		F77D15D70CEF6A58000800A4 /* RasterBitmapModeFast.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15C10CEF6A58000800A4 /* RasterBitmapModeFast.c */; };
+		F77D15D80CEF6A58000800A4 /* RasterBitmapSmoothwSpr8bit.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15C20CEF6A58000800A4 /* RasterBitmapSmoothwSpr8bit.c */; };
+		F77D15DA0CEF6A58000800A4 /* RasterBorder4bitMode.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15C40CEF6A58000800A4 /* RasterBorder4bitMode.c */; };
+		F77D15DB0CEF6A58000800A4 /* RasterBorder8bitMode.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15C50CEF6A58000800A4 /* RasterBorder8bitMode.c */; };
+		F77D15DC0CEF6A58000800A4 /* RasterExtendedColorTextwSpr.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15C60CEF6A58000800A4 /* RasterExtendedColorTextwSpr.c */; };
+		F77D15DD0CEF6A58000800A4 /* RasterMultiColorBitmapwSpr.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15C70CEF6A58000800A4 /* RasterMultiColorBitmapwSpr.c */; };
+		F77D15DE0CEF6A58000800A4 /* RasterNormalTextMode1bit.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15C80CEF6A58000800A4 /* RasterNormalTextMode1bit.c */; };
+		F77D15DF0CEF6A58000800A4 /* RasterNormalTextMode4bit.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15C90CEF6A58000800A4 /* RasterNormalTextMode4bit.c */; };
+		F77D15E00CEF6A58000800A4 /* RasterNormalTextwSprMode8bit.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15CA0CEF6A58000800A4 /* RasterNormalTextwSprMode8bit.c */; };
+		F77D15E10CEF6A58000800A4 /* VIC.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15CB0CEF6A58000800A4 /* VIC.c */; };
+		F77D15E20CEF6A58000800A4 /* VICInterrupts.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15CC0CEF6A58000800A4 /* VICInterrupts.c */; };
+		F77D15E30CEF6A58000800A4 /* VICMemory.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15CD0CEF6A58000800A4 /* VICMemory.c */; };
+		F77D15E40CEF6A58000800A4 /* VICSprites.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15CE0CEF6A58000800A4 /* VICSprites.c */; };
+		F77D15FB0CEF6A7F000800A4 /* CIA1.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15E50CEF6A7F000800A4 /* CIA1.c */; };
+		F77D15FC0CEF6A7F000800A4 /* CIA2.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15E60CEF6A7F000800A4 /* CIA2.c */; };
+		F77D15FD0CEF6A7F000800A4 /* Combug.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15E70CEF6A7F000800A4 /* Combug.c */; };
+		F77D15FE0CEF6A7F000800A4 /* CPU.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15E80CEF6A7F000800A4 /* CPU.c */; };
+		F77D15FF0CEF6A7F000800A4 /* CPUState.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15E90CEF6A7F000800A4 /* CPUState.c */; };
+		F77D16000CEF6A7F000800A4 /* CRAM.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15EA0CEF6A7F000800A4 /* CRAM.c */; };
+		F77D16010CEF6A7F000800A4 /* Debug.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15EB0CEF6A7F000800A4 /* Debug.c */; };
+		F77D16020CEF6A7F000800A4 /* DebugWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15EC0CEF6A7F000800A4 /* DebugWindow.c */; };
+		F77D16030CEF6A7F000800A4 /* Disassembler.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15ED0CEF6A7F000800A4 /* Disassembler.c */; };
+		F77D16040CEF6A7F000800A4 /* Emulator.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15EE0CEF6A7F000800A4 /* Emulator.c */; };
+		F77D16050CEF6A7F000800A4 /* Event.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15EF0CEF6A7F000800A4 /* Event.c */; };
+		F77D16060CEF6A7F000800A4 /* GlobalDefs.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F00CEF6A7F000800A4 /* GlobalDefs.c */; };
+		F77D16070CEF6A7F000800A4 /* Interrupts.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F10CEF6A7F000800A4 /* Interrupts.c */; };
+		F77D16080CEF6A7F000800A4 /* JoyStick.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F20CEF6A7F000800A4 /* JoyStick.c */; };
+		F77D16090CEF6A7F000800A4 /* Keyboard.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F30CEF6A7F000800A4 /* Keyboard.c */; };
+		F77D160A0CEF6A7F000800A4 /* Main.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F40CEF6A7F000800A4 /* Main.c */; };
+		F77D160B0CEF6A7F000800A4 /* Memory.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F50CEF6A7F000800A4 /* Memory.c */; };
+		F77D160C0CEF6A7F000800A4 /* Menu.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F60CEF6A7F000800A4 /* Menu.c */; };
+		F77D160D0CEF6A7F000800A4 /* Preference.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F70CEF6A7F000800A4 /* Preference.c */; };
+		F77D160E0CEF6A7F000800A4 /* SLOT1.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F80CEF6A7F000800A4 /* SLOT1.c */; };
+		F77D160F0CEF6A7F000800A4 /* SLOT2.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15F90CEF6A7F000800A4 /* SLOT2.c */; };
+		F77D16100CEF6A7F000800A4 /* Window.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15FA0CEF6A7F000800A4 /* Window.c */; };
+		F77D16460CEF6D6B000800A4 /* Floppy.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D163E0CEF6D6B000800A4 /* Floppy.c */; };
+		F77D16470CEF6D6B000800A4 /* Serial.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D16400CEF6D6B000800A4 /* Serial.c */; };
+		F77D16480CEF6D6B000800A4 /* tapehack.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D16430CEF6D6B000800A4 /* tapehack.c */; };
+		F77D16490CEF6D6B000800A4 /* Traps.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D16440CEF6D6B000800A4 /* Traps.c */; };
+		F77D16530CEF6D81000800A4 /* DoubleDrawingSetup.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D164C0CEF6D81000800A4 /* DoubleDrawingSetup.c */; };
+		F77D16540CEF6D81000800A4 /* RasterDBitmapModeFast.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D164D0CEF6D81000800A4 /* RasterDBitmapModeFast.c */; };
+		F77D16550CEF6D81000800A4 /* RasterDBorder8bitMode.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D164E0CEF6D81000800A4 /* RasterDBorder8bitMode.c */; };
+		F77D16560CEF6D81000800A4 /* RasterDExtendedColorTextwSpr.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D164F0CEF6D81000800A4 /* RasterDExtendedColorTextwSpr.c */; };
+		F77D16570CEF6D81000800A4 /* RasterDMultiColorBitmapwSpr.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D16500CEF6D81000800A4 /* RasterDMultiColorBitmapwSpr.c */; };
+		F77D16580CEF6D81000800A4 /* RasterDNormalTextwSprMode8bit.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D16510CEF6D81000800A4 /* RasterDNormalTextwSprMode8bit.c */; };
+		F77D16590CEF6D81000800A4 /* VICDSprites.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D16520CEF6D81000800A4 /* VICDSprites.c */; };
+		F77D171C0CEF7F30000800A4 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77D171B0CEF7F30000800A4 /* ApplicationServices.framework */; };
+		F77D193C0CEFC912000800A4 /* FileHelpers.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D193B0CEFC912000800A4 /* FileHelpers.c */; };
+		F77D19A10CEFCE11000800A4 /* Shell.µ.ppc.rsrc in Resources */ = {isa = PBXBuildFile; fileRef = F77D19A00CEFCE11000800A4 /* Shell.µ.ppc.rsrc */; };
+		F77D19A30CEFCE1B000800A4 /* About Box.rsrc in Resources */ = {isa = PBXBuildFile; fileRef = F77D19A20CEFCE1B000800A4 /* About Box.rsrc */; };
+		F77D1B4F0CF0A03E000800A4 /* About.r in Rez */ = {isa = PBXBuildFile; fileRef = F77D1B2C0CEFE720000800A4 /* About.r */; };
+		F77D1B500CF0A03E000800A4 /* Shell.r in Rez */ = {isa = PBXBuildFile; fileRef = F77D1B2D0CEFE720000800A4 /* Shell.r */; };
+		F77D1B510CF0A03E000800A4 /* About Box.rsrc in Rez */ = {isa = PBXBuildFile; fileRef = F77D19A20CEFCE1B000800A4 /* About Box.rsrc */; };
+		F77D1B520CF0A03E000800A4 /* Shell.µ.ppc.rsrc in Rez */ = {isa = PBXBuildFile; fileRef = F77D19A00CEFCE11000800A4 /* Shell.µ.ppc.rsrc */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0867D6ABFE840B52C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1870340FFE93FCAF11CA0CD7 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/main.nib; sourceTree = "<group>"; };
+		20286C2BFDCF999611CA2CEA /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		20286C33FDCF999611CA2CEA /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		32DBCF6D0370B57F00C91783 /* c64carbon_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = c64carbon_Prefix.pch; sourceTree = "<group>"; };
+		8D0C4E960486CD37000505A6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D0C4E970486CD37000505A6 /* c64carbon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = c64carbon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C60B50F31C1F24D400E97A56 /* SID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SID.c; path = "C Files hacked for bigness carbon/Sound Folder 10-11/SID.c"; sourceTree = "<group>"; };
+		C60B50F41C1F24D400E97A56 /* SIDPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIDPriv.h; path = "C Files hacked for bigness carbon/Sound Folder 10-11/SIDPriv.h"; sourceTree = "<group>"; };
+		C60B50F51C1F24D400E97A56 /* SID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SID.h; path = "C Files hacked for bigness carbon/Sound Folder 10-11/SID.h"; sourceTree = "<group>"; };
+		F77D15B90CEF6A58000800A4 /* ColorDrawing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ColorDrawing.c; path = "C Files hacked for bigness carbon/Al's Source/ColorDrawing.c"; sourceTree = "<group>"; };
+		F77D15BA0CEF6A58000800A4 /* CombugConsole.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CombugConsole.c; path = "C Files hacked for bigness carbon/Al's Source/CombugConsole.c"; sourceTree = "<group>"; };
+		F77D15BB0CEF6A58000800A4 /* CombugWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CombugWindow.c; path = "C Files hacked for bigness carbon/Al's Source/CombugWindow.c"; sourceTree = "<group>"; };
+		F77D15BC0CEF6A58000800A4 /* CVOffscreen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CVOffscreen.c; path = "C Files hacked for bigness carbon/Al's Source/CVOffscreen.c"; sourceTree = "<group>"; };
+		F77D15BD0CEF6A58000800A4 /* DeviceMenu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DeviceMenu.c; path = "C Files hacked for bigness carbon/Al's Source/DeviceMenu.c"; sourceTree = "<group>"; };
+		F77D15BE0CEF6A58000800A4 /* DrawingSetup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DrawingSetup.c; path = "C Files hacked for bigness carbon/Al's Source/DrawingSetup.c"; sourceTree = "<group>"; };
+		F77D15BF0CEF6A58000800A4 /* NormalTextSmoothwSpr8bit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NormalTextSmoothwSpr8bit.c; path = "C Files hacked for bigness carbon/Al's Source/NormalTextSmoothwSpr8bit.c"; sourceTree = "<group>"; };
+		F77D15C00CEF6A58000800A4 /* RasterBitmapMode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterBitmapMode.c; path = "C Files hacked for bigness carbon/Al's Source/RasterBitmapMode.c"; sourceTree = "<group>"; };
+		F77D15C10CEF6A58000800A4 /* RasterBitmapModeFast.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterBitmapModeFast.c; path = "C Files hacked for bigness carbon/Al's Source/RasterBitmapModeFast.c"; sourceTree = "<group>"; };
+		F77D15C20CEF6A58000800A4 /* RasterBitmapSmoothwSpr8bit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterBitmapSmoothwSpr8bit.c; path = "C Files hacked for bigness carbon/Al's Source/RasterBitmapSmoothwSpr8bit.c"; sourceTree = "<group>"; };
+		F77D15C30CEF6A58000800A4 /* RasterBitmapwSprMode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterBitmapwSprMode.c; path = "C Files hacked for bigness carbon/Al's Source/RasterBitmapwSprMode.c"; sourceTree = "<group>"; };
+		F77D15C40CEF6A58000800A4 /* RasterBorder4bitMode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterBorder4bitMode.c; path = "C Files hacked for bigness carbon/Al's Source/RasterBorder4bitMode.c"; sourceTree = "<group>"; };
+		F77D15C50CEF6A58000800A4 /* RasterBorder8bitMode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterBorder8bitMode.c; path = "C Files hacked for bigness carbon/Al's Source/RasterBorder8bitMode.c"; sourceTree = "<group>"; };
+		F77D15C60CEF6A58000800A4 /* RasterExtendedColorTextwSpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterExtendedColorTextwSpr.c; path = "C Files hacked for bigness carbon/Al's Source/RasterExtendedColorTextwSpr.c"; sourceTree = "<group>"; };
+		F77D15C70CEF6A58000800A4 /* RasterMultiColorBitmapwSpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterMultiColorBitmapwSpr.c; path = "C Files hacked for bigness carbon/Al's Source/RasterMultiColorBitmapwSpr.c"; sourceTree = "<group>"; };
+		F77D15C80CEF6A58000800A4 /* RasterNormalTextMode1bit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterNormalTextMode1bit.c; path = "C Files hacked for bigness carbon/Al's Source/RasterNormalTextMode1bit.c"; sourceTree = "<group>"; };
+		F77D15C90CEF6A58000800A4 /* RasterNormalTextMode4bit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterNormalTextMode4bit.c; path = "C Files hacked for bigness carbon/Al's Source/RasterNormalTextMode4bit.c"; sourceTree = "<group>"; };
+		F77D15CA0CEF6A58000800A4 /* RasterNormalTextwSprMode8bit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterNormalTextwSprMode8bit.c; path = "C Files hacked for bigness carbon/Al's Source/RasterNormalTextwSprMode8bit.c"; sourceTree = "<group>"; };
+		F77D15CB0CEF6A58000800A4 /* VIC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = VIC.c; path = "C Files hacked for bigness carbon/Al's Source/VIC.c"; sourceTree = "<group>"; };
+		F77D15CC0CEF6A58000800A4 /* VICInterrupts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = VICInterrupts.c; path = "C Files hacked for bigness carbon/Al's Source/VICInterrupts.c"; sourceTree = "<group>"; };
+		F77D15CD0CEF6A58000800A4 /* VICMemory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = VICMemory.c; path = "C Files hacked for bigness carbon/Al's Source/VICMemory.c"; sourceTree = "<group>"; };
+		F77D15CE0CEF6A58000800A4 /* VICSprites.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = VICSprites.c; path = "C Files hacked for bigness carbon/Al's Source/VICSprites.c"; sourceTree = "<group>"; };
+		F77D15E50CEF6A7F000800A4 /* CIA1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CIA1.c; path = "C Files hacked for bigness carbon/Source/CIA1.c"; sourceTree = "<group>"; };
+		F77D15E60CEF6A7F000800A4 /* CIA2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CIA2.c; path = "C Files hacked for bigness carbon/Source/CIA2.c"; sourceTree = "<group>"; };
+		F77D15E70CEF6A7F000800A4 /* Combug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Combug.c; path = "C Files hacked for bigness carbon/Source/Combug.c"; sourceTree = "<group>"; };
+		F77D15E80CEF6A7F000800A4 /* CPU.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CPU.c; path = "C Files hacked for bigness carbon/Source/CPU.c"; sourceTree = "<group>"; };
+		F77D15E90CEF6A7F000800A4 /* CPUState.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CPUState.c; path = "C Files hacked for bigness carbon/Source/CPUState.c"; sourceTree = "<group>"; };
+		F77D15EA0CEF6A7F000800A4 /* CRAM.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CRAM.c; path = "C Files hacked for bigness carbon/Source/CRAM.c"; sourceTree = "<group>"; };
+		F77D15EB0CEF6A7F000800A4 /* Debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Debug.c; path = "C Files hacked for bigness carbon/Source/Debug.c"; sourceTree = "<group>"; };
+		F77D15EC0CEF6A7F000800A4 /* DebugWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DebugWindow.c; path = "C Files hacked for bigness carbon/Source/DebugWindow.c"; sourceTree = "<group>"; };
+		F77D15ED0CEF6A7F000800A4 /* Disassembler.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Disassembler.c; path = "C Files hacked for bigness carbon/Source/Disassembler.c"; sourceTree = "<group>"; };
+		F77D15EE0CEF6A7F000800A4 /* Emulator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Emulator.c; path = "C Files hacked for bigness carbon/Source/Emulator.c"; sourceTree = "<group>"; };
+		F77D15EF0CEF6A7F000800A4 /* Event.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Event.c; path = "C Files hacked for bigness carbon/Source/Event.c"; sourceTree = "<group>"; };
+		F77D15F00CEF6A7F000800A4 /* GlobalDefs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = GlobalDefs.c; path = "C Files hacked for bigness carbon/Source/GlobalDefs.c"; sourceTree = "<group>"; };
+		F77D15F10CEF6A7F000800A4 /* Interrupts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Interrupts.c; path = "C Files hacked for bigness carbon/Source/Interrupts.c"; sourceTree = "<group>"; };
+		F77D15F20CEF6A7F000800A4 /* JoyStick.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = JoyStick.c; path = "C Files hacked for bigness carbon/Source/JoyStick.c"; sourceTree = "<group>"; };
+		F77D15F30CEF6A7F000800A4 /* Keyboard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Keyboard.c; path = "C Files hacked for bigness carbon/Source/Keyboard.c"; sourceTree = "<group>"; };
+		F77D15F40CEF6A7F000800A4 /* Main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Main.c; path = "C Files hacked for bigness carbon/Source/Main.c"; sourceTree = "<group>"; };
+		F77D15F50CEF6A7F000800A4 /* Memory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Memory.c; path = "C Files hacked for bigness carbon/Source/Memory.c"; sourceTree = "<group>"; };
+		F77D15F60CEF6A7F000800A4 /* Menu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Menu.c; path = "C Files hacked for bigness carbon/Source/Menu.c"; sourceTree = "<group>"; };
+		F77D15F70CEF6A7F000800A4 /* Preference.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Preference.c; path = "C Files hacked for bigness carbon/Source/Preference.c"; sourceTree = "<group>"; };
+		F77D15F80CEF6A7F000800A4 /* SLOT1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SLOT1.c; path = "C Files hacked for bigness carbon/Source/SLOT1.c"; sourceTree = "<group>"; };
+		F77D15F90CEF6A7F000800A4 /* SLOT2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SLOT2.c; path = "C Files hacked for bigness carbon/Source/SLOT2.c"; sourceTree = "<group>"; };
+		F77D15FA0CEF6A7F000800A4 /* Window.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Window.c; path = "C Files hacked for bigness carbon/Source/Window.c"; sourceTree = "<group>"; };
+		F77D16120CEF6B28000800A4 /* Accessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Accessors.h; path = "C Files hacked for bigness carbon/Header/Accessors.h"; sourceTree = "<group>"; };
+		F77D16130CEF6B28000800A4 /* ASMCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASMCPU.h; path = "C Files hacked for bigness carbon/Header/ASMCPU.h"; sourceTree = "<group>"; };
+		F77D16140CEF6B28000800A4 /* CIA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CIA1.h; path = "C Files hacked for bigness carbon/Header/CIA1.h"; sourceTree = "<group>"; };
+		F77D16150CEF6B28000800A4 /* CIA2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CIA2.h; path = "C Files hacked for bigness carbon/Header/CIA2.h"; sourceTree = "<group>"; };
+		F77D16160CEF6B28000800A4 /* Combug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Combug.h; path = "C Files hacked for bigness carbon/Header/Combug.h"; sourceTree = "<group>"; };
+		F77D16170CEF6B28000800A4 /* CPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPU.h; path = "C Files hacked for bigness carbon/Header/CPU.h"; sourceTree = "<group>"; };
+		F77D16180CEF6B28000800A4 /* CPUState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CPUState.h; path = "C Files hacked for bigness carbon/Header/CPUState.h"; sourceTree = "<group>"; };
+		F77D16190CEF6B28000800A4 /* CRAM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRAM.h; path = "C Files hacked for bigness carbon/Header/CRAM.h"; sourceTree = "<group>"; };
+		F77D161A0CEF6B28000800A4 /* Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Debug.h; path = "C Files hacked for bigness carbon/Header/Debug.h"; sourceTree = "<group>"; };
+		F77D161B0CEF6B28000800A4 /* DebugWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugWindow.h; path = "C Files hacked for bigness carbon/Header/DebugWindow.h"; sourceTree = "<group>"; };
+		F77D161C0CEF6B28000800A4 /* Disassembler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Disassembler.h; path = "C Files hacked for bigness carbon/Header/Disassembler.h"; sourceTree = "<group>"; };
+		F77D161D0CEF6B28000800A4 /* Emulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Emulator.h; path = "C Files hacked for bigness carbon/Header/Emulator.h"; sourceTree = "<group>"; };
+		F77D161E0CEF6B28000800A4 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = "C Files hacked for bigness carbon/Header/Event.h"; sourceTree = "<group>"; };
+		F77D161F0CEF6B28000800A4 /* GlobalDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalDefs.h; path = "C Files hacked for bigness carbon/Header/GlobalDefs.h"; sourceTree = "<group>"; };
+		F77D16200CEF6B28000800A4 /* Interrupts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Interrupts.h; path = "C Files hacked for bigness carbon/Header/Interrupts.h"; sourceTree = "<group>"; };
+		F77D16210CEF6B28000800A4 /* JoyStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JoyStick.h; path = "C Files hacked for bigness carbon/Header/JoyStick.h"; sourceTree = "<group>"; };
+		F77D16220CEF6B28000800A4 /* Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Keyboard.h; path = "C Files hacked for bigness carbon/Header/Keyboard.h"; sourceTree = "<group>"; };
+		F77D16230CEF6B28000800A4 /* KeyboardTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardTable.h; path = "C Files hacked for bigness carbon/Header/KeyboardTable.h"; sourceTree = "<group>"; };
+		F77D16240CEF6B28000800A4 /* Main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Main.h; path = "C Files hacked for bigness carbon/Header/Main.h"; sourceTree = "<group>"; };
+		F77D16250CEF6B28000800A4 /* Memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Memory.h; path = "C Files hacked for bigness carbon/Header/Memory.h"; sourceTree = "<group>"; };
+		F77D16260CEF6B28000800A4 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Menu.h; path = "C Files hacked for bigness carbon/Header/Menu.h"; sourceTree = "<group>"; };
+		F77D16270CEF6B28000800A4 /* OpcodeDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpcodeDefs.h; path = "C Files hacked for bigness carbon/Header/OpcodeDefs.h"; sourceTree = "<group>"; };
+		F77D16280CEF6B28000800A4 /* PageTables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageTables.h; path = "C Files hacked for bigness carbon/Header/PageTables.h"; sourceTree = "<group>"; };
+		F77D16290CEF6B28000800A4 /* Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preference.h; path = "C Files hacked for bigness carbon/Header/Preference.h"; sourceTree = "<group>"; };
+		F77D162A0CEF6B28000800A4 /* SLOT1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SLOT1.h; path = "C Files hacked for bigness carbon/Header/SLOT1.h"; sourceTree = "<group>"; };
+		F77D162B0CEF6B28000800A4 /* SLOT2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SLOT2.h; path = "C Files hacked for bigness carbon/Header/SLOT2.h"; sourceTree = "<group>"; };
+		F77D162C0CEF6B28000800A4 /* VIC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIC.h; path = "C Files hacked for bigness carbon/Header/VIC.h"; sourceTree = "<group>"; };
+		F77D162D0CEF6B28000800A4 /* Window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Window.h; path = "C Files hacked for bigness carbon/Header/Window.h"; sourceTree = "<group>"; };
+		F77D162F0CEF6C59000800A4 /* ColorDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorDrawing.h; path = "C Files hacked for bigness carbon/Al's Headers/ColorDrawing.h"; sourceTree = "<group>"; };
+		F77D16300CEF6C59000800A4 /* ColorTab4bit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorTab4bit.h; path = "C Files hacked for bigness carbon/Al's Headers/ColorTab4bit.h"; sourceTree = "<group>"; };
+		F77D16310CEF6C59000800A4 /* ColorTables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorTables.h; path = "C Files hacked for bigness carbon/Al's Headers/ColorTables.h"; sourceTree = "<group>"; };
+		F77D16320CEF6C59000800A4 /* CombugCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CombugCommands.h; path = "C Files hacked for bigness carbon/Al's Headers/CombugCommands.h"; sourceTree = "<group>"; };
+		F77D16330CEF6C59000800A4 /* CombugConsole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CombugConsole.h; path = "C Files hacked for bigness carbon/Al's Headers/CombugConsole.h"; sourceTree = "<group>"; };
+		F77D16340CEF6C59000800A4 /* CombugWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CombugWindow.h; path = "C Files hacked for bigness carbon/Al's Headers/CombugWindow.h"; sourceTree = "<group>"; };
+		F77D16350CEF6C59000800A4 /* CommandLineArgsTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandLineArgsTable.h; path = "C Files hacked for bigness carbon/Al's Headers/CommandLineArgsTable.h"; sourceTree = "<group>"; };
+		F77D16360CEF6C59000800A4 /* DeviceMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceMenu.h; path = "C Files hacked for bigness carbon/Al's Headers/DeviceMenu.h"; sourceTree = "<group>"; };
+		F77D16370CEF6C59000800A4 /* Drawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drawing.h; path = "C Files hacked for bigness carbon/Al's Headers/Drawing.h"; sourceTree = "<group>"; };
+		F77D16380CEF6C59000800A4 /* DrawingGlobals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingGlobals.h; path = "C Files hacked for bigness carbon/Al's Headers/DrawingGlobals.h"; sourceTree = "<group>"; };
+		F77D16390CEF6C59000800A4 /* ExternColorLookupTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExternColorLookupTab.h; path = "C Files hacked for bigness carbon/Al's Headers/ExternColorLookupTab.h"; sourceTree = "<group>"; };
+		F77D163A0CEF6C59000800A4 /* VICInterrupts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VICInterrupts.h; path = "C Files hacked for bigness carbon/Al's Headers/VICInterrupts.h"; sourceTree = "<group>"; };
+		F77D163B0CEF6C59000800A4 /* VICSprites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VICSprites.h; path = "C Files hacked for bigness carbon/Al's Headers/VICSprites.h"; sourceTree = "<group>"; };
+		F77D163D0CEF6D6B000800A4 /* FileTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileTypes.h; path = "C Files hacked for bigness carbon/C64/FileTypes.h"; sourceTree = "<group>"; };
+		F77D163E0CEF6D6B000800A4 /* Floppy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Floppy.c; path = "C Files hacked for bigness carbon/C64/Floppy.c"; sourceTree = "<group>"; };
+		F77D163F0CEF6D6B000800A4 /* Floppy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Floppy.h; path = "C Files hacked for bigness carbon/C64/Floppy.h"; sourceTree = "<group>"; };
+		F77D16400CEF6D6B000800A4 /* Serial.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Serial.c; path = "C Files hacked for bigness carbon/C64/Serial.c"; sourceTree = "<group>"; };
+		F77D16410CEF6D6B000800A4 /* Serial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Serial.h; path = "C Files hacked for bigness carbon/C64/Serial.h"; sourceTree = "<group>"; };
+		F77D16420CEF6D6B000800A4 /* Tape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tape.h; path = "C Files hacked for bigness carbon/C64/Tape.h"; sourceTree = "<group>"; };
+		F77D16430CEF6D6B000800A4 /* tapehack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tapehack.c; path = "C Files hacked for bigness carbon/C64/tapehack.c"; sourceTree = "<group>"; };
+		F77D16440CEF6D6B000800A4 /* Traps.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Traps.c; path = "C Files hacked for bigness carbon/C64/Traps.c"; sourceTree = "<group>"; };
+		F77D16450CEF6D6B000800A4 /* Traps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Traps.h; path = "C Files hacked for bigness carbon/C64/Traps.h"; sourceTree = "<group>"; };
+		F77D164A0CEF6D81000800A4 /* ColorTable8Double.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorTable8Double.h; path = "C Files hacked for bigness carbon/DoubleSizeCode/ColorTable8Double.h"; sourceTree = "<group>"; };
+		F77D164B0CEF6D81000800A4 /* DoubleDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoubleDrawing.h; path = "C Files hacked for bigness carbon/DoubleSizeCode/DoubleDrawing.h"; sourceTree = "<group>"; };
+		F77D164C0CEF6D81000800A4 /* DoubleDrawingSetup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DoubleDrawingSetup.c; path = "C Files hacked for bigness carbon/DoubleSizeCode/DoubleDrawingSetup.c"; sourceTree = "<group>"; };
+		F77D164D0CEF6D81000800A4 /* RasterDBitmapModeFast.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterDBitmapModeFast.c; path = "C Files hacked for bigness carbon/DoubleSizeCode/RasterDBitmapModeFast.c"; sourceTree = "<group>"; };
+		F77D164E0CEF6D81000800A4 /* RasterDBorder8bitMode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterDBorder8bitMode.c; path = "C Files hacked for bigness carbon/DoubleSizeCode/RasterDBorder8bitMode.c"; sourceTree = "<group>"; };
+		F77D164F0CEF6D81000800A4 /* RasterDExtendedColorTextwSpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterDExtendedColorTextwSpr.c; path = "C Files hacked for bigness carbon/DoubleSizeCode/RasterDExtendedColorTextwSpr.c"; sourceTree = "<group>"; };
+		F77D16500CEF6D81000800A4 /* RasterDMultiColorBitmapwSpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterDMultiColorBitmapwSpr.c; path = "C Files hacked for bigness carbon/DoubleSizeCode/RasterDMultiColorBitmapwSpr.c"; sourceTree = "<group>"; };
+		F77D16510CEF6D81000800A4 /* RasterDNormalTextwSprMode8bit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = RasterDNormalTextwSprMode8bit.c; path = "C Files hacked for bigness carbon/DoubleSizeCode/RasterDNormalTextwSprMode8bit.c"; sourceTree = "<group>"; };
+		F77D16520CEF6D81000800A4 /* VICDSprites.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = VICDSprites.c; path = "C Files hacked for bigness carbon/DoubleSizeCode/VICDSprites.c"; sourceTree = "<group>"; };
+		F77D171B0CEF7F30000800A4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		F77D193A0CEFC912000800A4 /* FileHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelpers.h; sourceTree = "<group>"; };
+		F77D193B0CEFC912000800A4 /* FileHelpers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FileHelpers.c; sourceTree = "<group>"; };
+		F77D19A00CEFCE11000800A4 /* Shell.µ.ppc.rsrc */ = {isa = PBXFileReference; lastKnownFileType = archive.rsrc; name = "Shell.µ.ppc.rsrc"; path = "C Files hacked for bigness carbon/Shell.µ.ppc.rsrc"; sourceTree = "<group>"; };
+		F77D19A20CEFCE1B000800A4 /* About Box.rsrc */ = {isa = PBXFileReference; lastKnownFileType = archive.rsrc; name = "About Box.rsrc"; path = "C Files hacked for bigness carbon/About Box.rsrc"; sourceTree = "<group>"; };
+		F77D1B2C0CEFE720000800A4 /* About.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; name = About.r; path = "C Files hacked for bigness carbon/About.r"; sourceTree = "<group>"; };
+		F77D1B2D0CEFE720000800A4 /* Shell.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; name = Shell.r; path = "C Files hacked for bigness carbon/Shell.r"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D0C4E910486CD37000505A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */,
+				F77D171C0CEF7F30000800A4 /* ApplicationServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		195DF8CFFE9D517E11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D0C4E970486CD37000505A6 /* c64carbon.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		20286C29FDCF999611CA2CEA /* c64carbon */ = {
+			isa = PBXGroup;
+			children = (
+				C65754701C1F515800F8704D /* Headers */,
+				20286C2AFDCF999611CA2CEA /* Sources */,
+				20286C2CFDCF999611CA2CEA /* Resources */,
+				20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */,
+				195DF8CFFE9D517E11CA2CBB /* Products */,
+			);
+			name = c64carbon;
+			sourceTree = "<group>";
+		};
+		20286C2AFDCF999611CA2CEA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				C60B50F31C1F24D400E97A56 /* SID.c */,
+				F77D164C0CEF6D81000800A4 /* DoubleDrawingSetup.c */,
+				F77D164D0CEF6D81000800A4 /* RasterDBitmapModeFast.c */,
+				F77D164E0CEF6D81000800A4 /* RasterDBorder8bitMode.c */,
+				F77D164F0CEF6D81000800A4 /* RasterDExtendedColorTextwSpr.c */,
+				F77D16500CEF6D81000800A4 /* RasterDMultiColorBitmapwSpr.c */,
+				F77D16510CEF6D81000800A4 /* RasterDNormalTextwSprMode8bit.c */,
+				F77D16520CEF6D81000800A4 /* VICDSprites.c */,
+				F77D163E0CEF6D6B000800A4 /* Floppy.c */,
+				F77D16400CEF6D6B000800A4 /* Serial.c */,
+				F77D16430CEF6D6B000800A4 /* tapehack.c */,
+				F77D16440CEF6D6B000800A4 /* Traps.c */,
+				F77D15E50CEF6A7F000800A4 /* CIA1.c */,
+				F77D15E60CEF6A7F000800A4 /* CIA2.c */,
+				F77D15E70CEF6A7F000800A4 /* Combug.c */,
+				F77D15E80CEF6A7F000800A4 /* CPU.c */,
+				F77D15E90CEF6A7F000800A4 /* CPUState.c */,
+				F77D15EA0CEF6A7F000800A4 /* CRAM.c */,
+				F77D15EB0CEF6A7F000800A4 /* Debug.c */,
+				F77D15EC0CEF6A7F000800A4 /* DebugWindow.c */,
+				F77D15ED0CEF6A7F000800A4 /* Disassembler.c */,
+				F77D15EE0CEF6A7F000800A4 /* Emulator.c */,
+				F77D15EF0CEF6A7F000800A4 /* Event.c */,
+				F77D15F00CEF6A7F000800A4 /* GlobalDefs.c */,
+				F77D15F10CEF6A7F000800A4 /* Interrupts.c */,
+				F77D15F20CEF6A7F000800A4 /* JoyStick.c */,
+				F77D15F30CEF6A7F000800A4 /* Keyboard.c */,
+				F77D15F40CEF6A7F000800A4 /* Main.c */,
+				F77D15F50CEF6A7F000800A4 /* Memory.c */,
+				F77D15F60CEF6A7F000800A4 /* Menu.c */,
+				F77D15F70CEF6A7F000800A4 /* Preference.c */,
+				F77D15F80CEF6A7F000800A4 /* SLOT1.c */,
+				F77D15F90CEF6A7F000800A4 /* SLOT2.c */,
+				F77D15FA0CEF6A7F000800A4 /* Window.c */,
+				F77D15B90CEF6A58000800A4 /* ColorDrawing.c */,
+				F77D15BA0CEF6A58000800A4 /* CombugConsole.c */,
+				F77D15BB0CEF6A58000800A4 /* CombugWindow.c */,
+				F77D15BC0CEF6A58000800A4 /* CVOffscreen.c */,
+				F77D15BD0CEF6A58000800A4 /* DeviceMenu.c */,
+				F77D15BE0CEF6A58000800A4 /* DrawingSetup.c */,
+				F77D15BF0CEF6A58000800A4 /* NormalTextSmoothwSpr8bit.c */,
+				F77D15C00CEF6A58000800A4 /* RasterBitmapMode.c */,
+				F77D15C10CEF6A58000800A4 /* RasterBitmapModeFast.c */,
+				F77D15C20CEF6A58000800A4 /* RasterBitmapSmoothwSpr8bit.c */,
+				F77D15C30CEF6A58000800A4 /* RasterBitmapwSprMode.c */,
+				F77D15C40CEF6A58000800A4 /* RasterBorder4bitMode.c */,
+				F77D15C50CEF6A58000800A4 /* RasterBorder8bitMode.c */,
+				F77D15C60CEF6A58000800A4 /* RasterExtendedColorTextwSpr.c */,
+				F77D15C70CEF6A58000800A4 /* RasterMultiColorBitmapwSpr.c */,
+				F77D15C80CEF6A58000800A4 /* RasterNormalTextMode1bit.c */,
+				F77D15C90CEF6A58000800A4 /* RasterNormalTextMode4bit.c */,
+				F77D15CA0CEF6A58000800A4 /* RasterNormalTextwSprMode8bit.c */,
+				F77D15CB0CEF6A58000800A4 /* VIC.c */,
+				F77D15CC0CEF6A58000800A4 /* VICInterrupts.c */,
+				F77D15CD0CEF6A58000800A4 /* VICMemory.c */,
+				F77D15CE0CEF6A58000800A4 /* VICSprites.c */,
+				32DBCF6D0370B57F00C91783 /* c64carbon_Prefix.pch */,
+				20286C2BFDCF999611CA2CEA /* main.c */,
+				F77D193B0CEFC912000800A4 /* FileHelpers.c */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		20286C2CFDCF999611CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F77D1B2C0CEFE720000800A4 /* About.r */,
+				F77D1B2D0CEFE720000800A4 /* Shell.r */,
+				F77D19A20CEFCE1B000800A4 /* About Box.rsrc */,
+				F77D19A00CEFCE11000800A4 /* Shell.µ.ppc.rsrc */,
+				8D0C4E960486CD37000505A6 /* Info.plist */,
+				0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */,
+				02345980000FD03B11CA0E72 /* main.nib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				F77D171B0CEF7F30000800A4 /* ApplicationServices.framework */,
+				20286C33FDCF999611CA2CEA /* Carbon.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		C65754701C1F515800F8704D /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				C60B50F41C1F24D400E97A56 /* SIDPriv.h */,
+				C60B50F51C1F24D400E97A56 /* SID.h */,
+				F77D164A0CEF6D81000800A4 /* ColorTable8Double.h */,
+				F77D164B0CEF6D81000800A4 /* DoubleDrawing.h */,
+				F77D163D0CEF6D6B000800A4 /* FileTypes.h */,
+				F77D163F0CEF6D6B000800A4 /* Floppy.h */,
+				F77D16410CEF6D6B000800A4 /* Serial.h */,
+				F77D16420CEF6D6B000800A4 /* Tape.h */,
+				F77D16450CEF6D6B000800A4 /* Traps.h */,
+				F77D162F0CEF6C59000800A4 /* ColorDrawing.h */,
+				F77D16300CEF6C59000800A4 /* ColorTab4bit.h */,
+				F77D16310CEF6C59000800A4 /* ColorTables.h */,
+				F77D16320CEF6C59000800A4 /* CombugCommands.h */,
+				F77D16330CEF6C59000800A4 /* CombugConsole.h */,
+				F77D16340CEF6C59000800A4 /* CombugWindow.h */,
+				F77D16350CEF6C59000800A4 /* CommandLineArgsTable.h */,
+				F77D16360CEF6C59000800A4 /* DeviceMenu.h */,
+				F77D16370CEF6C59000800A4 /* Drawing.h */,
+				F77D16380CEF6C59000800A4 /* DrawingGlobals.h */,
+				F77D16390CEF6C59000800A4 /* ExternColorLookupTab.h */,
+				F77D163A0CEF6C59000800A4 /* VICInterrupts.h */,
+				F77D163B0CEF6C59000800A4 /* VICSprites.h */,
+				F77D16120CEF6B28000800A4 /* Accessors.h */,
+				F77D16130CEF6B28000800A4 /* ASMCPU.h */,
+				F77D16140CEF6B28000800A4 /* CIA1.h */,
+				F77D16150CEF6B28000800A4 /* CIA2.h */,
+				F77D16160CEF6B28000800A4 /* Combug.h */,
+				F77D16170CEF6B28000800A4 /* CPU.h */,
+				F77D16180CEF6B28000800A4 /* CPUState.h */,
+				F77D16190CEF6B28000800A4 /* CRAM.h */,
+				F77D161A0CEF6B28000800A4 /* Debug.h */,
+				F77D161B0CEF6B28000800A4 /* DebugWindow.h */,
+				F77D161C0CEF6B28000800A4 /* Disassembler.h */,
+				F77D161D0CEF6B28000800A4 /* Emulator.h */,
+				F77D161E0CEF6B28000800A4 /* Event.h */,
+				F77D161F0CEF6B28000800A4 /* GlobalDefs.h */,
+				F77D16200CEF6B28000800A4 /* Interrupts.h */,
+				F77D16210CEF6B28000800A4 /* JoyStick.h */,
+				F77D16220CEF6B28000800A4 /* Keyboard.h */,
+				F77D16230CEF6B28000800A4 /* KeyboardTable.h */,
+				F77D16240CEF6B28000800A4 /* Main.h */,
+				F77D16250CEF6B28000800A4 /* Memory.h */,
+				F77D16260CEF6B28000800A4 /* Menu.h */,
+				F77D16270CEF6B28000800A4 /* OpcodeDefs.h */,
+				F77D16280CEF6B28000800A4 /* PageTables.h */,
+				F77D16290CEF6B28000800A4 /* Preference.h */,
+				F77D162A0CEF6B28000800A4 /* SLOT1.h */,
+				F77D162B0CEF6B28000800A4 /* SLOT2.h */,
+				F77D162C0CEF6B28000800A4 /* VIC.h */,
+				F77D162D0CEF6B28000800A4 /* Window.h */,
+				F77D193A0CEFC912000800A4 /* FileHelpers.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D0C4E890486CD37000505A6 /* c64carbon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "c64carbon" */;
+			buildPhases = (
+				8D0C4E8C0486CD37000505A6 /* Resources */,
+				8D0C4E8F0486CD37000505A6 /* Sources */,
+				8D0C4E910486CD37000505A6 /* Frameworks */,
+				F77D1B650CF0A05F000800A4 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = c64carbon;
+			productInstallPath = "$(HOME)/Applications";
+			productName = c64carbon;
+			productReference = 8D0C4E970486CD37000505A6 /* c64carbon.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		20286C28FDCF999611CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+			};
+			buildConfigurationList = C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "c64carbon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 20286C29FDCF999611CA2CEA /* c64carbon */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D0C4E890486CD37000505A6 /* c64carbon */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D0C4E8C0486CD37000505A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D0C4E8D0486CD37000505A6 /* InfoPlist.strings in Resources */,
+				8D0C4E8E0486CD37000505A6 /* main.nib in Resources */,
+				F77D19A10CEFCE11000800A4 /* Shell.µ.ppc.rsrc in Resources */,
+				F77D19A30CEFCE1B000800A4 /* About Box.rsrc in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		F77D1B650CF0A05F000800A4 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F77D1B4F0CF0A03E000800A4 /* About.r in Rez */,
+				F77D1B500CF0A03E000800A4 /* Shell.r in Rez */,
+				F77D1B510CF0A03E000800A4 /* About Box.rsrc in Rez */,
+				F77D1B520CF0A03E000800A4 /* Shell.µ.ppc.rsrc in Rez */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D0C4E8F0486CD37000505A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F77D15CF0CEF6A58000800A4 /* ColorDrawing.c in Sources */,
+				F77D15D00CEF6A58000800A4 /* CombugConsole.c in Sources */,
+				F77D15D10CEF6A58000800A4 /* CombugWindow.c in Sources */,
+				F77D15D30CEF6A58000800A4 /* DeviceMenu.c in Sources */,
+				F77D15D40CEF6A58000800A4 /* DrawingSetup.c in Sources */,
+				F77D15D50CEF6A58000800A4 /* NormalTextSmoothwSpr8bit.c in Sources */,
+				F77D15D70CEF6A58000800A4 /* RasterBitmapModeFast.c in Sources */,
+				F77D15D80CEF6A58000800A4 /* RasterBitmapSmoothwSpr8bit.c in Sources */,
+				F77D15DA0CEF6A58000800A4 /* RasterBorder4bitMode.c in Sources */,
+				F77D15DB0CEF6A58000800A4 /* RasterBorder8bitMode.c in Sources */,
+				F77D15DC0CEF6A58000800A4 /* RasterExtendedColorTextwSpr.c in Sources */,
+				F77D15DD0CEF6A58000800A4 /* RasterMultiColorBitmapwSpr.c in Sources */,
+				C60B50F61C1F24D400E97A56 /* SID.c in Sources */,
+				F77D15DE0CEF6A58000800A4 /* RasterNormalTextMode1bit.c in Sources */,
+				F77D15DF0CEF6A58000800A4 /* RasterNormalTextMode4bit.c in Sources */,
+				F77D15E00CEF6A58000800A4 /* RasterNormalTextwSprMode8bit.c in Sources */,
+				F77D15E10CEF6A58000800A4 /* VIC.c in Sources */,
+				F77D15E20CEF6A58000800A4 /* VICInterrupts.c in Sources */,
+				F77D15E30CEF6A58000800A4 /* VICMemory.c in Sources */,
+				F77D15E40CEF6A58000800A4 /* VICSprites.c in Sources */,
+				F77D15FB0CEF6A7F000800A4 /* CIA1.c in Sources */,
+				F77D15FC0CEF6A7F000800A4 /* CIA2.c in Sources */,
+				F77D15FD0CEF6A7F000800A4 /* Combug.c in Sources */,
+				F77D15FE0CEF6A7F000800A4 /* CPU.c in Sources */,
+				F77D15FF0CEF6A7F000800A4 /* CPUState.c in Sources */,
+				F77D16000CEF6A7F000800A4 /* CRAM.c in Sources */,
+				F77D16010CEF6A7F000800A4 /* Debug.c in Sources */,
+				F77D16020CEF6A7F000800A4 /* DebugWindow.c in Sources */,
+				F77D16030CEF6A7F000800A4 /* Disassembler.c in Sources */,
+				F77D16040CEF6A7F000800A4 /* Emulator.c in Sources */,
+				F77D16050CEF6A7F000800A4 /* Event.c in Sources */,
+				F77D16060CEF6A7F000800A4 /* GlobalDefs.c in Sources */,
+				F77D16070CEF6A7F000800A4 /* Interrupts.c in Sources */,
+				F77D16080CEF6A7F000800A4 /* JoyStick.c in Sources */,
+				F77D16090CEF6A7F000800A4 /* Keyboard.c in Sources */,
+				F77D160A0CEF6A7F000800A4 /* Main.c in Sources */,
+				F77D160B0CEF6A7F000800A4 /* Memory.c in Sources */,
+				F77D160C0CEF6A7F000800A4 /* Menu.c in Sources */,
+				F77D160D0CEF6A7F000800A4 /* Preference.c in Sources */,
+				F77D160E0CEF6A7F000800A4 /* SLOT1.c in Sources */,
+				F77D160F0CEF6A7F000800A4 /* SLOT2.c in Sources */,
+				F77D16100CEF6A7F000800A4 /* Window.c in Sources */,
+				F77D16460CEF6D6B000800A4 /* Floppy.c in Sources */,
+				F77D16470CEF6D6B000800A4 /* Serial.c in Sources */,
+				F77D16480CEF6D6B000800A4 /* tapehack.c in Sources */,
+				F77D16490CEF6D6B000800A4 /* Traps.c in Sources */,
+				F77D16530CEF6D81000800A4 /* DoubleDrawingSetup.c in Sources */,
+				F77D16540CEF6D81000800A4 /* RasterDBitmapModeFast.c in Sources */,
+				F77D16550CEF6D81000800A4 /* RasterDBorder8bitMode.c in Sources */,
+				F77D16560CEF6D81000800A4 /* RasterDExtendedColorTextwSpr.c in Sources */,
+				F77D16570CEF6D81000800A4 /* RasterDMultiColorBitmapwSpr.c in Sources */,
+				F77D16580CEF6D81000800A4 /* RasterDNormalTextwSprMode8bit.c in Sources */,
+				F77D16590CEF6D81000800A4 /* VICDSprites.c in Sources */,
+				F77D193C0CEFC912000800A4 /* FileHelpers.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		02345980000FD03B11CA0E72 /* main.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1870340FFE93FCAF11CA0CD7 /* English */,
+			);
+			name = main.nib;
+			sourceTree = "<group>";
+		};
+		0867D6AAFE840B52C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0867D6ABFE840B52C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C0E91AC608A95435008D54AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = c64carbon_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.c64carbon;
+				PRODUCT_NAME = c64carbon;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C0E91AC708A95435008D54AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = c64carbon_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.c64carbon;
+				PRODUCT_NAME = c64carbon;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C0E91ACA08A95435008D54AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		C0E91ACB08A95435008D54AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0E91AC508A95435008D54AB /* Build configuration list for PBXNativeTarget "c64carbon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E91AC608A95435008D54AB /* Debug */,
+				C0E91AC708A95435008D54AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0E91AC908A95435008D54AB /* Build configuration list for PBXProject "c64carbon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0E91ACA08A95435008D54AB /* Debug */,
+				C0E91ACB08A95435008D54AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 20286C28FDCF999611CA2CEA /* Project object */;
+}

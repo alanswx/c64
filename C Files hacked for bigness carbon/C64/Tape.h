@@ -1,0 +1,1 @@
+/*Tape.h*/void	TapeInitialize(void);void 	LoadTape(void);void	LoadTapeMixedMode(void);void 	LoadTapeFS(FSSpec *spec);

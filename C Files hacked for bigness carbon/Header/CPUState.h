@@ -1,0 +1,1 @@
+/*-------------------------------------------------------------------------------*\||	File:	CPUState.h||	Description:||||||	Copyright ©	1994, Alan Steremberg and Ed Wynne|\*-------------------------------------------------------------------------------*/#ifndef	_CPUSTATE_#define	_CPUSTATE_void ResetCPUState(void);#endif	_CPUSTATE_

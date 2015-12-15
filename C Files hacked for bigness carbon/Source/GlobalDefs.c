@@ -1,0 +1,1 @@
+////	This file contains global definitions for the entire project//#define	NDEBUG#include <assert.h>#define	DEBUG		1

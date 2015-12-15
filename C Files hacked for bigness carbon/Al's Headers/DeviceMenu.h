@@ -1,0 +1,1 @@
+void	InitDevices					(void);void 	HandleDeviceMenuClick	(short menu,short item);void 		LoadTape					(void);void		FloppyInitialize		(void);void		FloppyCleanup			(void);void 		FloppySelectImage		(void);int 		TrapInitialize			(void);int 		SerialInitialize		(void);void		CleanupDevices			(void);

@@ -1,0 +1,1 @@
+/*DoubleDrawing.h*/void	DoubleBuildMultiColorTable8Bit(void);void	DoubleBuildColorTable(void);void	DoubleUpdateBackgroundColor_NormalText(void);

@@ -1,0 +1,1 @@
+/*VICInterrupts.h*/void				VICPullIntLine			(unsigned	char	mask);void				VICRasterIncrement	(void);unsigned	long	VICReadD019				(void);unsigned	long	VICReadD01A				(void);void				VICWriteD019 			(unsigned long val);void				VICWriteD01A			(unsigned long val);

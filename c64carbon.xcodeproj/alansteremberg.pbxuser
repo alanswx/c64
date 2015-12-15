@@ -1,0 +1,1002 @@
+// !$*UTF8*$!
+{
+	20286C28FDCF999611CA2CEA /* Project object */ = {
+		activeArchitecture = ppc;
+		activeBuildConfigurationName = Debug;
+		activeExecutable = F77D15AE0CEF69C8000800A4 /* c64carbon */;
+		activeTarget = 8D0C4E890486CD37000505A6 /* c64carbon */;
+		addToTargets = (
+			8D0C4E890486CD37000505A6 /* c64carbon */,
+		);
+		breakpoints = (
+			F77D18690CEFC09F000800A4 /* SLOT1.h:28 */,
+			F77D1B240CEFE44E000800A4 /* Main.c:44 */,
+			F77D1B730CF0ABD7000800A4 /* Window.c:294 */,
+			F77D1BA30CF0AD71000800A4 /* Debug.c:52 */,
+			F77D1BE60CF0B05B000800A4 /* DebugWindow.c:336 */,
+			F77D1BFD0CF0B0A4000800A4 /* DebugWindow.c:311 */,
+			F77D1C290CF0B180000800A4 /* DebugWindow.c:314 */,
+			F77D1C5C0CF0B377000800A4 /* DebugWindow.c:335 */,
+			F77D1CC60CF0BA81000800A4 /* ColorDrawing.c:510 */,
+			F77D1D060CF0BE79000800A4 /* Combug.c:327 */,
+			F7C04D180CF14C04001E11D3 /* Combug.c:101 */,
+			F7C04D280CF14CD7001E11D3 /* Combug.c:299 */,
+			F7C04D3C0CF14E3C001E11D3 /* Memory.c:67 */,
+			F7C04D490CF14EDB001E11D3 /* Event.c:116 */,
+			F7C04D4B0CF14EF0001E11D3 /* Emulator.c:166 */,
+			F7C04D4D0CF14F1A001E11D3 /* CPU.c:329 */,
+			F7C04D990CF152BC001E11D3 /* ColorDrawing.c:217 */,
+		);
+		codeSenseManager = F77D15B60CEF69EA000800A4 /* Code sense */;
+		executables = (
+			F77D15AE0CEF69C8000800A4 /* c64carbon */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					779,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					739,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 217181204;
+			PBXWorkspaceStateSaveDate = 217181204;
+		};
+		perUserProjectItems = {
+			F74285A30CF1ECD200B49CCE /* PBXTextBookmark */ = F74285A30CF1ECD200B49CCE /* PBXTextBookmark */;
+			F74285A40CF1ECD200B49CCE /* PBXTextBookmark */ = F74285A40CF1ECD200B49CCE /* PBXTextBookmark */;
+			F74285A50CF1ECD200B49CCE /* PBXTextBookmark */ = F74285A50CF1ECD200B49CCE /* PBXTextBookmark */;
+			F74285A60CF1ECD200B49CCE /* PBXTextBookmark */ = F74285A60CF1ECD200B49CCE /* PBXTextBookmark */;
+			F74285A70CF1ECD200B49CCE /* PBXTextBookmark */ = F74285A70CF1ECD200B49CCE /* PBXTextBookmark */;
+			F74285A80CF1ECD200B49CCE /* PBXTextBookmark */ = F74285A80CF1ECD200B49CCE /* PBXTextBookmark */;
+			F74285A90CF1ECD200B49CCE /* PBXTextBookmark */ = F74285A90CF1ECD200B49CCE /* PBXTextBookmark */;
+			F7C04DAD0CF15495001E11D3 /* PBXTextBookmark */ = F7C04DAD0CF15495001E11D3 /* PBXTextBookmark */;
+			F7C04DAE0CF15495001E11D3 /* PBXTextBookmark */ = F7C04DAE0CF15495001E11D3 /* PBXTextBookmark */;
+			F7C04DAF0CF15495001E11D3 /* PBXTextBookmark */ = F7C04DAF0CF15495001E11D3 /* PBXTextBookmark */;
+			F7C04DB00CF15495001E11D3 /* PBXTextBookmark */ = F7C04DB00CF15495001E11D3 /* PBXTextBookmark */;
+			F7C04DB10CF15495001E11D3 /* PBXTextBookmark */ = F7C04DB10CF15495001E11D3 /* PBXTextBookmark */;
+			F7C04DB20CF15495001E11D3 /* PBXTextBookmark */ = F7C04DB20CF15495001E11D3 /* PBXTextBookmark */;
+			F7C04DB30CF15495001E11D3 /* PBXTextBookmark */ = F7C04DB30CF15495001E11D3 /* PBXTextBookmark */;
+		};
+		sourceControlManager = F77D15B50CEF69EA000800A4 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	20286C2BFDCF999611CA2CEA /* main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 2240}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 2904}";
+			sepNavWindowFrame = "{{198, 228}, {1248, 1274}}";
+		};
+	};
+	8D0C4E890486CD37000505A6 /* c64carbon */ = {
+		activeExec = 0;
+		executables = (
+			F77D15AE0CEF69C8000800A4 /* c64carbon */,
+		);
+	};
+	F74285A30CF1ECD200B49CCE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D162F0CEF6C59000800A4 /* ColorDrawing.h */;
+		name = "ColorDrawing.h: 25";
+		rLen = 0;
+		rLoc = 501;
+		rType = 0;
+		vrLen = 1389;
+		vrLoc = 0;
+	};
+	F74285A40CF1ECD200B49CCE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15B90CEF6A58000800A4 /* ColorDrawing.c */;
+		name = "ColorDrawing.c: 220";
+		rLen = 0;
+		rLoc = 5001;
+		rType = 0;
+		vrLen = 1862;
+		vrLoc = 4439;
+	};
+	F74285A50CF1ECD200B49CCE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15E80CEF6A7F000800A4 /* CPU.c */;
+		name = "CPU.c: 324";
+		rLen = 0;
+		rLoc = 8434;
+		rType = 0;
+		vrLen = 1309;
+		vrLoc = 7720;
+	};
+	F74285A60CF1ECD200B49CCE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15EE0CEF6A7F000800A4 /* Emulator.c */;
+		name = "Emulator.c: 166";
+		rLen = 0;
+		rLoc = 2691;
+		rType = 0;
+		vrLen = 1246;
+		vrLoc = 1577;
+	};
+	F74285A70CF1ECD200B49CCE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15F50CEF6A7F000800A4 /* Memory.c */;
+		name = "Memory.c: 67";
+		rLen = 0;
+		rLoc = 1261;
+		rType = 0;
+		vrLen = 1938;
+		vrLoc = 437;
+	};
+	F74285A80CF1ECD200B49CCE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15E70CEF6A7F000800A4 /* Combug.c */;
+		name = "Combug.c: 313";
+		rLen = 0;
+		rLoc = 6806;
+		rType = 0;
+		vrLen = 1279;
+		vrLoc = 6337;
+	};
+	F74285A90CF1ECD200B49CCE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15BB0CEF6A58000800A4 /* CombugWindow.c */;
+		name = "CombugWindow.c: 59";
+		rLen = 0;
+		rLoc = 1276;
+		rType = 0;
+		vrLen = 1652;
+		vrLoc = 331;
+	};
+	F77D15AE0CEF69C8000800A4 /* c64carbon */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = c64carbon;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	F77D15B50CEF69EA000800A4 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	F77D15B60CEF69EA000800A4 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	F77D15B90CEF6A58000800A4 /* ColorDrawing.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 8428}}";
+			sepNavSelRange = "{5001, 0}";
+			sepNavVisRange = "{4439, 1862}";
+			sepNavWindowFrame = "{{929, 153}, {1248, 1274}}";
+		};
+	};
+	F77D15BA0CEF6A58000800A4 /* CombugConsole.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 11340}}";
+			sepNavSelRange = "{185, 0}";
+			sepNavVisRange = "{8698, 1652}";
+			sepNavWindowFrame = "{{199, 131}, {1248, 1274}}";
+		};
+	};
+	F77D15BB0CEF6A58000800A4 /* CombugWindow.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 3780}}";
+			sepNavSelRange = "{1276, 0}";
+			sepNavVisRange = "{331, 1652}";
+			sepNavWindowFrame = "{{32, -166}, {1248, 1274}}";
+		};
+	};
+	F77D15BC0CEF6A58000800A4 /* CVOffscreen.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1055, 5180}}";
+			sepNavSelRange = "{12515, 7}";
+			sepNavVisRange = "{12196, 609}";
+			sepNavWindowFrame = "{{61, 257}, {1248, 1274}}";
+		};
+	};
+	F77D15BE0CEF6A58000800A4 /* DrawingSetup.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 4004}}";
+			sepNavSelRange = "{399, 0}";
+			sepNavVisRange = "{0, 1685}";
+			sepNavWindowFrame = "{{1352, 216}, {1248, 1274}}";
+		};
+	};
+	F77D15C00CEF6A58000800A4 /* RasterBitmapMode.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1330}}";
+			sepNavSelRange = "{117, 28}";
+			sepNavVisRange = "{0, 1757}";
+			sepNavWindowFrame = "{{61, 257}, {1248, 1274}}";
+		};
+	};
+	F77D15C10CEF6A58000800A4 /* RasterBitmapModeFast.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1596}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{675, 1881}";
+			sepNavWindowFrame = "{{653, 212}, {1248, 1274}}";
+		};
+	};
+	F77D15CB0CEF6A58000800A4 /* VIC.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 7350}}";
+			sepNavSelRange = "{9550, 0}";
+			sepNavVisRange = "{9238, 2415}";
+			sepNavWindowFrame = "{{245, 89}, {1248, 1274}}";
+		};
+	};
+	F77D15CC0CEF6A58000800A4 /* VICInterrupts.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1004, 2968}}";
+			sepNavSelRange = "{1668, 0}";
+			sepNavVisRange = "{1381, 513}";
+			sepNavWindowFrame = "{{84, 236}, {1248, 1274}}";
+		};
+	};
+	F77D15CD0CEF6A58000800A4 /* VICMemory.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1127, 9828}}";
+			sepNavSelRange = "{5822, 53}";
+			sepNavVisRange = "{5327, 1054}";
+		};
+	};
+	F77D15E50CEF6A7F000800A4 /* CIA1.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 3528}}";
+			sepNavSelRange = "{3392, 0}";
+			sepNavVisRange = "{3106, 1943}";
+			sepNavWindowFrame = "{{61, 257}, {1248, 1274}}";
+		};
+	};
+	F77D15E60CEF6A7F000800A4 /* CIA2.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 3388}}";
+			sepNavSelRange = "{3332, 0}";
+			sepNavVisRange = "{2076, 2017}";
+			sepNavWindowFrame = "{{130, 194}, {1248, 1274}}";
+		};
+	};
+	F77D15E70CEF6A7F000800A4 /* Combug.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 10276}}";
+			sepNavSelRange = "{6806, 0}";
+			sepNavVisRange = "{6337, 1279}";
+			sepNavWindowFrame = "{{440, 198}, {1248, 1274}}";
+		};
+	};
+	F77D15E80CEF6A7F000800A4 /* CPU.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 81088}}";
+			sepNavSelRange = "{8434, 0}";
+			sepNavVisRange = "{7720, 1309}";
+			sepNavWindowFrame = "{{453, 217}, {1248, 1274}}";
+		};
+	};
+	F77D15EA0CEF6A7F000800A4 /* CRAM.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{733, 0}";
+			sepNavVisRange = "{0, 882}";
+			sepNavWindowFrame = "{{153, 173}, {1248, 1274}}";
+		};
+	};
+	F77D15EB0CEF6A7F000800A4 /* Debug.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1004, 3164}}";
+			sepNavSelRange = "{3266, 0}";
+			sepNavVisRange = "{3166, 294}";
+			sepNavWindowFrame = "{{674, 237}, {1248, 1274}}";
+		};
+	};
+	F77D15EC0CEF6A7F000800A4 /* DebugWindow.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1004, 5446}}";
+			sepNavSelRange = "{2685, 0}";
+			sepNavVisRange = "{2727, 680}";
+			sepNavWindowFrame = "{{628, 91}, {1248, 1274}}";
+		};
+	};
+	F77D15EE0CEF6A7F000800A4 /* Emulator.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 2492}}";
+			sepNavSelRange = "{2691, 0}";
+			sepNavVisRange = "{1577, 1246}";
+			sepNavWindowFrame = "{{199, 131}, {1248, 1274}}";
+		};
+	};
+	F77D15EF0CEF6A7F000800A4 /* Event.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1004, 3094}}";
+			sepNavSelRange = "{2142, 11}";
+			sepNavVisRange = "{1932, 425}";
+			sepNavWindowFrame = "{{15, 299}, {1248, 1274}}";
+		};
+	};
+	F77D15F00CEF6A7F000800A4 /* GlobalDefs.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{0, 124}";
+			sepNavVisRange = "{0, 124}";
+			sepNavWindowFrame = "{{222, 110}, {1248, 1274}}";
+		};
+	};
+	F77D15F10CEF6A7F000800A4 /* Interrupts.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1004, 4816}}";
+			sepNavSelRange = "{2014, 0}";
+			sepNavVisRange = "{1803, 555}";
+		};
+	};
+	F77D15F40CEF6A7F000800A4 /* Main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1004, 1610}}";
+			sepNavSelRange = "{829, 0}";
+			sepNavVisRange = "{628, 388}";
+			sepNavWindowFrame = "{{741, 101}, {1248, 1274}}";
+		};
+	};
+	F77D15F50CEF6A7F000800A4 /* Memory.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 5978}}";
+			sepNavSelRange = "{1261, 0}";
+			sepNavVisRange = "{437, 1938}";
+			sepNavWindowFrame = "{{1012, 81}, {1248, 1274}}";
+		};
+	};
+	F77D15F60CEF6A7F000800A4 /* Menu.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 2408}}";
+			sepNavSelRange = "{712, 0}";
+			sepNavVisRange = "{0, 1058}";
+			sepNavWindowFrame = "{{176, 152}, {1248, 1274}}";
+		};
+	};
+	F77D15F70CEF6A7F000800A4 /* Preference.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 2408}}";
+			sepNavSelRange = "{2323, 0}";
+			sepNavVisRange = "{1228, 1274}";
+			sepNavWindowFrame = "{{153, 173}, {1248, 1274}}";
+		};
+	};
+	F77D15F80CEF6A7F000800A4 /* SLOT1.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1127, 728}}";
+			sepNavSelRange = "{680, 0}";
+			sepNavVisRange = "{125, 692}";
+		};
+	};
+	F77D15F90CEF6A7F000800A4 /* SLOT2.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{680, 0}";
+			sepNavVisRange = "{0, 817}";
+			sepNavWindowFrame = "{{199, 131}, {1248, 1274}}";
+		};
+	};
+	F77D15FA0CEF6A7F000800A4 /* Window.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1004, 6538}}";
+			sepNavSelRange = "{4362, 0}";
+			sepNavVisRange = "{4233, 312}";
+			sepNavWindowFrame = "{{1035, 247}, {1248, 1274}}";
+		};
+	};
+	F77D16120CEF6B28000800A4 /* Accessors.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{771, 0}";
+			sepNavVisRange = "{0, 797}";
+			sepNavWindowFrame = "{{1011, 223}, {1248, 1274}}";
+		};
+	};
+	F77D16130CEF6B28000800A4 /* ASMCPU.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1055, 350}}";
+			sepNavSelRange = "{94, 6}";
+			sepNavVisRange = "{0, 303}";
+			sepNavWindowFrame = "{{199, 131}, {1248, 1274}}";
+		};
+	};
+	F77D16140CEF6B28000800A4 /* CIA1.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1372}}";
+			sepNavSelRange = "{1666, 0}";
+			sepNavVisRange = "{280, 1471}";
+			sepNavWindowFrame = "{{84, 236}, {1248, 1274}}";
+		};
+	};
+	F77D16150CEF6B28000800A4 /* CIA2.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1386}}";
+			sepNavSelRange = "{1664, 0}";
+			sepNavVisRange = "{295, 1455}";
+			sepNavWindowFrame = "{{107, 215}, {1248, 1274}}";
+		};
+	};
+	F77D16190CEF6B28000800A4 /* CRAM.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{289, 0}";
+			sepNavVisRange = "{0, 310}";
+			sepNavWindowFrame = "{{176, 152}, {1248, 1274}}";
+		};
+	};
+	F77D161B0CEF6B28000800A4 /* DebugWindow.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{523, 7}";
+			sepNavVisRange = "{0, 573}";
+			sepNavWindowFrame = "{{176, 152}, {1248, 1274}}";
+		};
+	};
+	F77D161F0CEF6B28000800A4 /* GlobalDefs.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1127, 612}}";
+			sepNavSelRange = "{315, 24}";
+			sepNavVisRange = "{0, 486}";
+			sepNavWindowFrame = "{{245, 89}, {1248, 1274}}";
+		};
+	};
+	F77D16250CEF6B28000800A4 /* Memory.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{736, 0}";
+			sepNavVisRange = "{0, 1755}";
+			sepNavWindowFrame = "{{38, 278}, {1248, 1274}}";
+		};
+	};
+	F77D162A0CEF6B28000800A4 /* SLOT1.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{560, 0}";
+			sepNavVisRange = "{0, 582}";
+			sepNavWindowFrame = "{{107, 215}, {1248, 1274}}";
+		};
+	};
+	F77D162B0CEF6B28000800A4 /* SLOT2.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{560, 0}";
+			sepNavVisRange = "{0, 582}";
+			sepNavWindowFrame = "{{130, 194}, {1248, 1274}}";
+		};
+	};
+	F77D162C0CEF6B28000800A4 /* VIC.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{547, 0}";
+			sepNavVisRange = "{0, 567}";
+			sepNavWindowFrame = "{{222, 110}, {1248, 1274}}";
+		};
+	};
+	F77D162F0CEF6C59000800A4 /* ColorDrawing.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{501, 0}";
+			sepNavVisRange = "{0, 1389}";
+			sepNavWindowFrame = "{{38, 278}, {1248, 1274}}";
+		};
+	};
+	F77D16380CEF6C59000800A4 /* DrawingGlobals.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{1136, 13}";
+			sepNavVisRange = "{0, 1278}";
+			sepNavWindowFrame = "{{245, 89}, {1248, 1274}}";
+		};
+	};
+	F77D16390CEF6C59000800A4 /* ExternColorLookupTab.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 571}";
+			sepNavWindowFrame = "{{222, 110}, {1248, 1274}}";
+		};
+	};
+	F77D163E0CEF6D6B000800A4 /* Floppy.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 22778}}";
+			sepNavSelRange = "{30871, 21}";
+			sepNavVisRange = "{29955, 1526}";
+			sepNavWindowFrame = "{{61, 257}, {1248, 1274}}";
+		};
+	};
+	F77D16430CEF6D6B000800A4 /* tapehack.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1127, 2702}}";
+			sepNavSelRange = "{3674, 0}";
+			sepNavVisRange = "{2610, 670}";
+		};
+	};
+	F77D164E0CEF6D81000800A4 /* RasterDBorder8bitMode.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1004, 1904}}";
+			sepNavSelRange = "{889, 0}";
+			sepNavVisRange = "{561, 698}";
+			sepNavWindowFrame = "{{61, 257}, {1248, 1274}}";
+		};
+	};
+	F77D18510CEFC040000800A4 /* SID.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1055, 13076}}";
+			sepNavSelRange = "{10596, 2}";
+			sepNavVisRange = "{10377, 429}";
+			sepNavWindowFrame = "{{107, 215}, {1248, 1274}}";
+		};
+	};
+	F77D18520CEFC040000800A4 /* SID.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{424, 0}";
+			sepNavVisRange = "{0, 509}";
+			sepNavWindowFrame = "{{84, 236}, {1248, 1274}}";
+		};
+	};
+	F77D18530CEFC040000800A4 /* SIDPriv.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 2156}}";
+			sepNavSelRange = "{1490, 0}";
+			sepNavVisRange = "{0, 1867}";
+			sepNavWindowFrame = "{{1451, 84}, {1248, 1274}}";
+		};
+	};
+	F77D18690CEFC09F000800A4 /* SLOT1.h:28 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D162A0CEF6B28000800A4 /* SLOT1.h */;
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 28;
+		modificationTime = 217181219.245857;
+		state = 2;
+	};
+	F77D193A0CEFC912000800A4 /* FileHelpers.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 1146}}";
+			sepNavSelRange = "{257, 45}";
+			sepNavVisRange = "{0, 302}";
+			sepNavWindowFrame = "{{1608, 218}, {1248, 1274}}";
+		};
+	};
+	F77D193B0CEFC912000800A4 /* FileHelpers.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 2170}}";
+			sepNavSelRange = "{3540, 0}";
+			sepNavVisRange = "{2075, 1880}";
+			sepNavWindowFrame = "{{578, 240}, {1248, 1274}}";
+		};
+	};
+	F77D19A00CEFCE11000800A4 /* Shell.µ.ppc.rsrc */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1209, 1123}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRect = "{{0, 0}, {1209, 1123}}";
+			sepNavWindowFrame = "{{199, 131}, {1248, 1274}}";
+		};
+	};
+	F77D1B240CEFE44E000800A4 /* Main.c:44 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15F40CEF6A7F000800A4 /* Main.c */;
+		functionName = "main()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 44;
+		location = c64carbon;
+		modificationTime = 217181219.245914;
+		state = 2;
+	};
+	F77D1B2C0CEFE720000800A4 /* About.r */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 12390}}";
+			sepNavSelRange = "{1340, 0}";
+			sepNavVisRange = "{0, 4991}";
+			sepNavWindowFrame = "{{222, 110}, {1248, 1274}}";
+		};
+	};
+	F77D1B2D0CEFE720000800A4 /* Shell.r */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1189, 61054}}";
+			sepNavSelRange = "{3017, 34}";
+			sepNavVisRange = "{1095, 4414}";
+			sepNavWindowFrame = "{{935, 116}, {1248, 1274}}";
+		};
+	};
+	F77D1B730CF0ABD7000800A4 /* Window.c:294 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15FA0CEF6A7F000800A4 /* Window.c */;
+		functionName = "SetWindowRefCon()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 294;
+		location = c64carbon;
+		modificationTime = 217181219.245934;
+		state = 2;
+	};
+	F77D1BA30CF0AD71000800A4 /* Debug.c:52 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15EB0CEF6A7F000800A4 /* Debug.c */;
+		functionName = "InitDebug()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 52;
+		location = c64carbon;
+		modificationTime = 217181219.245952;
+		state = 2;
+	};
+	F77D1BE60CF0B05B000800A4 /* DebugWindow.c:336 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15EC0CEF6A7F000800A4 /* DebugWindow.c */;
+		functionName = "dprintf()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 336;
+		location = c64carbon;
+		modificationTime = 217181219.245969;
+		state = 2;
+	};
+	F77D1BFD0CF0B0A4000800A4 /* DebugWindow.c:311 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15EC0CEF6A7F000800A4 /* DebugWindow.c */;
+		functionName = "DrawDebugWindowText()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 311;
+		location = c64carbon;
+		modificationTime = 217181219.245985;
+		state = 2;
+	};
+	F77D1C290CF0B180000800A4 /* DebugWindow.c:314 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15EC0CEF6A7F000800A4 /* DebugWindow.c */;
+		functionName = "DrawDebugWindowText()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 314;
+		location = c64carbon;
+		modificationTime = 217181219.246002;
+		state = 2;
+	};
+	F77D1C5C0CF0B377000800A4 /* DebugWindow.c:335 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15EC0CEF6A7F000800A4 /* DebugWindow.c */;
+		functionName = "dprintf()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 335;
+		location = c64carbon;
+		modificationTime = 217181219.246018;
+		state = 2;
+	};
+	F77D1CC60CF0BA81000800A4 /* ColorDrawing.c:510 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15B90CEF6A58000800A4 /* ColorDrawing.c */;
+		functionName = "BlastColorTestPattern()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 510;
+		location = c64carbon;
+		modificationTime = 217181219.246035;
+		state = 2;
+	};
+	F77D1D060CF0BE79000800A4 /* Combug.c:327 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15E70CEF6A7F000800A4 /* Combug.c */;
+		functionName = "DrawCombugWindow()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 327;
+		location = c64carbon;
+		modificationTime = 217181219.246348;
+		state = 2;
+	};
+	F7C04D180CF14C04001E11D3 /* Combug.c:101 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15E70CEF6A7F000800A4 /* Combug.c */;
+		functionName = "InitCombug()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 101;
+		location = c64carbon;
+		modificationTime = 217181219.246611;
+		state = 2;
+	};
+	F7C04D280CF14CD7001E11D3 /* Combug.c:299 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15E70CEF6A7F000800A4 /* Combug.c */;
+		functionName = "ToggleCombugWindow()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 299;
+		location = c64carbon;
+		modificationTime = 217181219.247239;
+		state = 1;
+	};
+	F7C04D3C0CF14E3C001E11D3 /* Memory.c:67 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15F50CEF6A7F000800A4 /* Memory.c */;
+		functionName = "InitMemory()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 67;
+		location = c64carbon;
+		modificationTime = 217181219.247566;
+		state = 2;
+	};
+	F7C04D490CF14EDB001E11D3 /* Event.c:116 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15EF0CEF6A7F000800A4 /* Event.c */;
+		functionName = "doEventLoop()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 116;
+		location = c64carbon;
+		modificationTime = 217181219.247733;
+		state = 2;
+	};
+	F7C04D4B0CF14EF0001E11D3 /* Emulator.c:166 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15EE0CEF6A7F000800A4 /* Emulator.c */;
+		functionName = "EmulatorRun()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 166;
+		location = c64carbon;
+		modificationTime = 217181219.247757;
+		state = 2;
+	};
+	F7C04D4D0CF14F1A001E11D3 /* CPU.c:329 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15E80CEF6A7F000800A4 /* CPU.c */;
+		functionName = "CPU()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 329;
+		location = c64carbon;
+		modificationTime = 217181219.24784;
+		state = 2;
+	};
+	F7C04D990CF152BC001E11D3 /* ColorDrawing.c:217 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = F77D15B90CEF6A58000800A4 /* ColorDrawing.c */;
+		functionName = "UpdateBlastingParameters()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 217;
+		location = c64carbon;
+		modificationTime = 217181219.248067;
+		state = 2;
+	};
+	F7C04DAD0CF15495001E11D3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D162F0CEF6C59000800A4 /* ColorDrawing.h */;
+		name = "ColorDrawing.h: 25";
+		rLen = 0;
+		rLoc = 501;
+		rType = 0;
+		vrLen = 1389;
+		vrLoc = 0;
+	};
+	F7C04DAE0CF15495001E11D3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15B90CEF6A58000800A4 /* ColorDrawing.c */;
+		name = "ColorDrawing.c: 220";
+		rLen = 0;
+		rLoc = 5001;
+		rType = 0;
+		vrLen = 1771;
+		vrLoc = 4526;
+	};
+	F7C04DAF0CF15495001E11D3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15E80CEF6A7F000800A4 /* CPU.c */;
+		name = "CPU.c: 324";
+		rLen = 0;
+		rLoc = 8434;
+		rType = 0;
+		vrLen = 1337;
+		vrLoc = 7692;
+	};
+	F7C04DB00CF15495001E11D3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15EE0CEF6A7F000800A4 /* Emulator.c */;
+		name = "Emulator.c: 166";
+		rLen = 0;
+		rLoc = 2691;
+		rType = 0;
+		vrLen = 1226;
+		vrLoc = 1597;
+	};
+	F7C04DB10CF15495001E11D3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15F50CEF6A7F000800A4 /* Memory.c */;
+		name = "Memory.c: 67";
+		rLen = 0;
+		rLoc = 1261;
+		rType = 0;
+		vrLen = 1966;
+		vrLoc = 437;
+	};
+	F7C04DB20CF15495001E11D3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15E70CEF6A7F000800A4 /* Combug.c */;
+		name = "Combug.c: 313";
+		rLen = 0;
+		rLoc = 6806;
+		rType = 0;
+		vrLen = 822;
+		vrLoc = 6337;
+	};
+	F7C04DB30CF15495001E11D3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F77D15BB0CEF6A58000800A4 /* CombugWindow.c */;
+		name = "CombugWindow.c: 59";
+		rLen = 0;
+		rLoc = 1276;
+		rType = 0;
+		vrLen = 1678;
+		vrLoc = 331;
+	};
+}

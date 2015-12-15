@@ -1,0 +1,1 @@
+#ifndef FILETYPES_H#define FILETYPES_H#define APPLTYPE 'C64E'#define DISKFTYPE 'C64D'#define RAMFTYPE 'C64R'#define PRINTERFTYPE 'C64P'#define TAPEFTYPE 'C64T'#define HDFTYPE 'C64H'#define PREFFTYPE 'C64p'#endif
