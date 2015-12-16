@@ -22,7 +22,7 @@
 
 #include <SDL2/SDL.h>
 
-
+#define DEBUG 0
 
 
 /*	local constants	*/
@@ -39,7 +39,7 @@
 	char					*gTextBuffer = NULL;
 	long					gTotalLines;
 	ControlActionUPP	gDebugWindowClickUPP=NULL;
-#endif	DEBUG
+#endif	//DEBUG
 
 
 
@@ -96,7 +96,7 @@ void InitDebugWindow(void)
 			if (visible)
 				ShowDebugWindow();
 		}
-	#endif	DEBUG
+	#endif	//DEBUG
 }
 
 
@@ -149,7 +149,7 @@ void CleanUpDebugWindow(void)
 		
 		if (gDebugWindowClickUPP)
 			DisposeRoutineDescriptor(gDebugWindowClickUPP);
-	#endif	DEBUG
+	#endif	//DEBUG
 }
 
 
@@ -165,7 +165,7 @@ void ShowDebugWindow(void)
 		theMenu = GetMenu(1000);
 		SetMenuItemText(theMenu,2,"\pHide Debug Window");
 		ShowWindow(gDebugWindow);
-	#endif	DEBUG
+	#endif	//DEBUG
 }
 
 
@@ -181,7 +181,7 @@ void HideDebugWindow(void)
 		theMenu = GetMenu(1000);
 		SetMenuItemText(theMenu,2,"\pShow Debug Window");
 		HideWindow(gDebugWindow);
-	#endif	DEBUG
+	#endif	//DEBUG
 }
 
 
@@ -210,7 +210,7 @@ void DebugWindowClickProc(WindowPtr window,long refcon,Point where)
 					DrawDebugWindowText();
 					break;
 			}
-	#endif	DEBUG
+	#endif	//DEBUG
 }
 
 
@@ -251,7 +251,7 @@ pascal void DebugScrollBarActionProc(ControlHandle control,short part)
 			SetControl32BitValue(control,value);
 			DrawDebugWindowText();
 		}
-	#endif	DEBUG
+	#endif	//DEBUG
 }
 
 
@@ -262,7 +262,7 @@ void DebugWindowCloseProc(WindowPtr window,long refcon)
 {
 	#if	DEBUG
 		HideDebugWindow();
-	#endif	DEBUG
+	#endif	//DEBUG
 }
 
 
@@ -293,7 +293,7 @@ void DebugWindowUpdateProc(WindowPtr window,long refcon)
 		
 		SetClip(savedClip);
 		DisposeRgn(savedClip);
-	#endif	DEBUG
+	#endif	//DEBUG
 }
 
 
@@ -323,7 +323,7 @@ void DrawDebugWindowText(void)
 			MoveTo(2,index*11+9-negoffset);
 			DrawString((StringPtr)gTextBuffer+offset);
 		}
-	#endif	DEBUG
+	#endif	//DEBUG
 }
 
 
@@ -372,5 +372,5 @@ void debug_window_printf(char *format,...)
 		DrawDebugWindowText();
 		
 		SetPort(savedPort);
-	#endif	DEBUG
+	#endif	//DEBUG
 }

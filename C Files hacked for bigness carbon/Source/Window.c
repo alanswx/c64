@@ -15,6 +15,7 @@
 
 #include "Window.h"
 
+#if 0
 
 
 
@@ -454,3 +455,4 @@ void SetWindowZoomOutProc(WindowPtr window,WindowZoomOutProc zoomOut)
 	
 	info->WindowZoomOutProc = zoomOut;
 }
+#endif

@@ -11,6 +11,7 @@
 |	Copyright �	1994, Alan Steremberg and Ed Wynne
 |
 \*-------------------------------------------------------------------------------*/
+#include "nfd.h"
 
 #include	"Accessors.h"
 #include	"Tape.h"
@@ -87,9 +88,10 @@ extern	unsigned	char	*gRAMBlock;
 
 #endif
 
-void LoadTapeFS(FSSpec *spec)
+void LoadTapeFS(nfdchar_t  *spec)
 {
-	short fNum;
+//	short fNum;
+    FILE *theFile;
 	long 	len;
 	unsigned	char 	data;
 	unsigned	short 	addr;
@@ -98,26 +100,42 @@ void LoadTapeFS(FSSpec *spec)
 #if	!DMA
 	long	i;
 #endif	
-	FSpOpenDF(spec, fsRdPerm, &fNum);
-	SetFPos(fNum, fsFromStart, 0x42);
-	len=1; FSRead(fNum, &len, &data); addr=data;
-	len=1; FSRead(fNum, &len, &data); addr+=((unsigned short)data)<<8;
+    theFile = fopen(spec,"r");
+//	FSpOpenDF(spec, fsRdPerm, &fNum);
+//	SetFPos(fNum, fsFromStart, 0x42);
+    fseek(theFile,0x42,SEEK_SET);
+
+    len=1; len=fread(&data,len,1,theFile);  addr=data;
+    len=1; len=fread(&data,len,1,theFile); addr+=((unsigned short)data)<<8;
+
+	//len=1; FSRead(fNum, &len, &data); addr=data;
+	//len=1; FSRead(fNum, &len, &data); addr+=((unsigned short)data)<<8;
 	
-	SetFPos(fNum, fsFromStart, 0x0400);
-	GetEOF(fNum,&curEOF);
+    fseek(theFile,0x0400,SEEK_SET);
+//	SetFPos(fNum, fsFromStart, 0x0400);
+
+    fseek(theFile,0,SEEK_END);
+    curEOF = ftell(theFile);
+    
+    fseek(theFile,0x0400,SEEK_SET);
+
+    //GetEOF(fNum,&curEOF);
 	if (curEOF-0x0400 > 65535)
 		debug_window_printf("Tape Error");
 	else
 		{
-		buf=NewPtr(curEOF-0x0400);
+		buf=malloc(curEOF-0x0400);
 		
 		if (buf)
 			{
 			len=curEOF-0x400;
 	
 	#if	DMA
-			FSRead(fNum,&len,&gRAMBlock[addr]);
-			FSClose(fNum);
+           //     FSRead(fNum,&len,&gRAMBlock[addr]);
+           //     FSClose(fNum);
+                fread(&gRAMBlock[addr],len,1,theFile);
+                fclose(theFile);
+                
 	#else
 			FSRead(fNum,&len,buf);
 			FSClose(fNum);
@@ -125,7 +143,7 @@ void LoadTapeFS(FSSpec *spec)
 				MEMWRITEBYTE(addr,buf[i]);
 	#endif
 		
-			DisposePtr(buf);
+			free(buf);
 			}
 		else
 			debug_window_printf("Couldn't allocate memory for tape");
@@ -137,17 +155,22 @@ void LoadTapeFS(FSSpec *spec)
 void LoadTape(void)
 {
 //	StandardFileReply reply;
-	FSSpec theFileSpec;
+//	FSSpec theFileSpec;
 
 //	SFTypeList			types;
-		OSErr err=SimpleNavGetFile(&theFileSpec);
-
+//		OSErr err=SimpleNavGetFile(&theFileSpec);
+//
 //	StandardGetFile(nil, (short)-1, types, &reply);
-	if (err==noErr)
+//	if (err==noErr)
+    
+    nfdchar_t *outPath = NULL;
+    nfdresult_t result = NFD_OpenDialog( "T64", NULL, &outPath );
+    
+    if ( result == NFD_OKAY )
 	{
-		LoadTapeFS(&theFileSpec);
+		LoadTapeFS(outPath);
 	}
-	
+    if (outPath) free(outPath);
 }
 
 void LoadTapeMixedMode(void)
@@ -157,18 +180,23 @@ void LoadTapeMixedMode(void)
 //	SFTypeList			types;
 
 	//pull key out of event queue
-	WaitNextEvent(keyDownMask,&pullKey,0,NULL);
-	FSSpec theFileSpec;
+//	WaitNextEvent(keyDownMask,&pullKey,0,NULL);
+//	FSSpec theFileSpec;
 
 //	SFTypeList			types;
-	OSErr err=SimpleNavGetFile(&theFileSpec);
+//	OSErr err=SimpleNavGetFile(&theFileSpec);
 			
 //	StandardGetFile(nil, (short)-1, types, &reply);
 
-	if (err==noErr)
+//	if (err==noErr)
 //	if (reply.sfGood)
-	{
-		LoadTapeFS(&theFileSpec);
+    
+    nfdchar_t *outPath = NULL;
+    nfdresult_t result = NFD_OpenDialog( "T64", NULL, &outPath );
+    
+    if ( result == NFD_OKAY )
+    {
+		LoadTapeFS(outPath);
 
 		SETFLAGZ();
 		CLEARFLAGC();
@@ -183,7 +211,8 @@ void LoadTapeMixedMode(void)
 
  	CPUOP_60_RTS();
 
-	
+    if (outPath) free(outPath);
+
 }
 
 void	TapeInitialize(void)

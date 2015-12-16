@@ -28,10 +28,10 @@ Boolean	gEnableJoyA, gEnableJoyB;
 
 void InitJoystick(void)
 {
-		InsertPlainMenu(132,0);
-		AddItemProc(ToggleJoyProc,132,1);
-		AddItemProc(ToggleJoyProc,132,2);
-		DrawMenuBar();
+		//InsertPlainMenu(132,0);
+		//AddItemProc(ToggleJoyProc,132,1);
+		//AddItemProc(ToggleJoyProc,132,2);
+		//DrawMenuBar();
 		gEnableJoyA=FALSE;
 		gEnableJoyB=FALSE;
 }
@@ -45,8 +45,8 @@ unsigned long ReadJoyStick1(void)
 	unsigned char	keys[16];
 	unsigned long	result;
 	
-	
-	GetKeys((long*)&keys[0]);
+	// AJS TO DO
+	//GetKeys((long*)&keys[0]);
 	
 	result = 0;
 
@@ -84,7 +84,7 @@ unsigned long ReadJoyStick1(void)
 
 
 
-
+#if 0
 
 void ToggleJoyProc	(short menu,short item)
 {
@@ -123,3 +123,4 @@ void ToggleJoyProc	(short menu,short item)
 		break;
 		}
 }
+#endif

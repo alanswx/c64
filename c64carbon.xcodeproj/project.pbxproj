@@ -11,6 +11,10 @@
 		8D0C4E8E0486CD37000505A6 /* main.nib in Resources */ = {isa = PBXBuildFile; fileRef = 02345980000FD03B11CA0E72 /* main.nib */; };
 		8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20286C33FDCF999611CA2CEA /* Carbon.framework */; };
 		C60B50F61C1F24D400E97A56 /* SID.c in Sources */ = {isa = PBXBuildFile; fileRef = C60B50F31C1F24D400E97A56 /* SID.c */; };
+		C657548E1C20E2B700F8704D /* nfd_cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = C657547D1C20E2B700F8704D /* nfd_cocoa.m */; };
+		C657548F1C20E2B700F8704D /* nfd_common.c in Sources */ = {isa = PBXBuildFile; fileRef = C657547E1C20E2B700F8704D /* nfd_common.c */; };
+		C65754981C20E32A00F8704D /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C65754971C20E32A00F8704D /* SDL2.framework */; };
+		C657549A1C20FDAC00F8704D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C65754991C20FDAC00F8704D /* AppKit.framework */; };
 		F77D15CF0CEF6A58000800A4 /* ColorDrawing.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15B90CEF6A58000800A4 /* ColorDrawing.c */; };
 		F77D15D00CEF6A58000800A4 /* CombugConsole.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15BA0CEF6A58000800A4 /* CombugConsole.c */; };
 		F77D15D10CEF6A58000800A4 /* CombugWindow.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D15BB0CEF6A58000800A4 /* CombugWindow.c */; };
@@ -64,7 +68,6 @@
 		F77D16580CEF6D81000800A4 /* RasterDNormalTextwSprMode8bit.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D16510CEF6D81000800A4 /* RasterDNormalTextwSprMode8bit.c */; };
 		F77D16590CEF6D81000800A4 /* VICDSprites.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D16520CEF6D81000800A4 /* VICDSprites.c */; };
 		F77D171C0CEF7F30000800A4 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77D171B0CEF7F30000800A4 /* ApplicationServices.framework */; };
-		F77D193C0CEFC912000800A4 /* FileHelpers.c in Sources */ = {isa = PBXBuildFile; fileRef = F77D193B0CEFC912000800A4 /* FileHelpers.c */; };
 		F77D19A10CEFCE11000800A4 /* Shell.µ.ppc.rsrc in Resources */ = {isa = PBXBuildFile; fileRef = F77D19A00CEFCE11000800A4 /* Shell.µ.ppc.rsrc */; };
 		F77D19A30CEFCE1B000800A4 /* About Box.rsrc in Resources */ = {isa = PBXBuildFile; fileRef = F77D19A20CEFCE1B000800A4 /* About Box.rsrc */; };
 		F77D1B4F0CF0A03E000800A4 /* About.r in Rez */ = {isa = PBXBuildFile; fileRef = F77D1B2C0CEFE720000800A4 /* About.r */; };
@@ -84,6 +87,13 @@
 		C60B50F31C1F24D400E97A56 /* SID.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = SID.c; path = "C Files hacked for bigness carbon/Sound Folder 10-11/SID.c"; sourceTree = "<group>"; };
 		C60B50F41C1F24D400E97A56 /* SIDPriv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SIDPriv.h; path = "C Files hacked for bigness carbon/Sound Folder 10-11/SIDPriv.h"; sourceTree = "<group>"; };
 		C60B50F51C1F24D400E97A56 /* SID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SID.h; path = "C Files hacked for bigness carbon/Sound Folder 10-11/SID.h"; sourceTree = "<group>"; };
+		C657547A1C20E2B700F8704D /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		C657547C1C20E2B700F8704D /* nfd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nfd.h; sourceTree = "<group>"; };
+		C657547D1C20E2B700F8704D /* nfd_cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nfd_cocoa.m; sourceTree = "<group>"; };
+		C657547E1C20E2B700F8704D /* nfd_common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = nfd_common.c; sourceTree = "<group>"; };
+		C657547F1C20E2B700F8704D /* nfd_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nfd_common.h; sourceTree = "<group>"; };
+		C65754971C20E32A00F8704D /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<absolute>"; };
+		C65754991C20FDAC00F8704D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		F77D15B90CEF6A58000800A4 /* ColorDrawing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ColorDrawing.c; path = "C Files hacked for bigness carbon/Al's Source/ColorDrawing.c"; sourceTree = "<group>"; };
 		F77D15BA0CEF6A58000800A4 /* CombugConsole.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CombugConsole.c; path = "C Files hacked for bigness carbon/Al's Source/CombugConsole.c"; sourceTree = "<group>"; };
 		F77D15BB0CEF6A58000800A4 /* CombugWindow.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CombugWindow.c; path = "C Files hacked for bigness carbon/Al's Source/CombugWindow.c"; sourceTree = "<group>"; };
@@ -189,7 +199,6 @@
 		F77D16520CEF6D81000800A4 /* VICDSprites.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = VICDSprites.c; path = "C Files hacked for bigness carbon/DoubleSizeCode/VICDSprites.c"; sourceTree = "<group>"; };
 		F77D171B0CEF7F30000800A4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		F77D193A0CEFC912000800A4 /* FileHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelpers.h; sourceTree = "<group>"; };
-		F77D193B0CEFC912000800A4 /* FileHelpers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FileHelpers.c; sourceTree = "<group>"; };
 		F77D19A00CEFCE11000800A4 /* Shell.µ.ppc.rsrc */ = {isa = PBXFileReference; lastKnownFileType = archive.rsrc; name = "Shell.µ.ppc.rsrc"; path = "C Files hacked for bigness carbon/Shell.µ.ppc.rsrc"; sourceTree = "<group>"; };
 		F77D19A20CEFCE1B000800A4 /* About Box.rsrc */ = {isa = PBXFileReference; lastKnownFileType = archive.rsrc; name = "About Box.rsrc"; path = "C Files hacked for bigness carbon/About Box.rsrc"; sourceTree = "<group>"; };
 		F77D1B2C0CEFE720000800A4 /* About.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; name = About.r; path = "C Files hacked for bigness carbon/About.r"; sourceTree = "<group>"; };
@@ -201,6 +210,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C657549A1C20FDAC00F8704D /* AppKit.framework in Frameworks */,
+				C65754981C20E32A00F8704D /* SDL2.framework in Frameworks */,
 				8D0C4E920486CD37000505A6 /* Carbon.framework in Frameworks */,
 				F77D171C0CEF7F30000800A4 /* ApplicationServices.framework in Frameworks */,
 			);
@@ -220,6 +231,8 @@
 		20286C29FDCF999611CA2CEA /* c64carbon */ = {
 			isa = PBXGroup;
 			children = (
+				C65754991C20FDAC00F8704D /* AppKit.framework */,
+				C65754711C20E2B700F8704D /* nativefiledialog */,
 				C65754701C1F515800F8704D /* Headers */,
 				20286C2AFDCF999611CA2CEA /* Sources */,
 				20286C2CFDCF999611CA2CEA /* Resources */,
@@ -290,7 +303,6 @@
 				F77D15CE0CEF6A58000800A4 /* VICSprites.c */,
 				32DBCF6D0370B57F00C91783 /* c64carbon_Prefix.pch */,
 				20286C2BFDCF999611CA2CEA /* main.c */,
-				F77D193B0CEFC912000800A4 /* FileHelpers.c */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -312,6 +324,7 @@
 		20286C32FDCF999611CA2CEA /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C65754971C20E32A00F8704D /* SDL2.framework */,
 				F77D171B0CEF7F30000800A4 /* ApplicationServices.framework */,
 				20286C33FDCF999611CA2CEA /* Carbon.framework */,
 			);
@@ -374,6 +387,34 @@
 				F77D193A0CEFC912000800A4 /* FileHelpers.h */,
 			);
 			name = Headers;
+			sourceTree = "<group>";
+		};
+		C65754711C20E2B700F8704D /* nativefiledialog */ = {
+			isa = PBXGroup;
+			children = (
+				C65754791C20E2B700F8704D /* src */,
+			);
+			path = nativefiledialog;
+			sourceTree = "<group>";
+		};
+		C65754791C20E2B700F8704D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C657547A1C20E2B700F8704D /* common.h */,
+				C657547B1C20E2B700F8704D /* include */,
+				C657547D1C20E2B700F8704D /* nfd_cocoa.m */,
+				C657547E1C20E2B700F8704D /* nfd_common.c */,
+				C657547F1C20E2B700F8704D /* nfd_common.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		C657547B1C20E2B700F8704D /* include */ = {
+			isa = PBXGroup;
+			children = (
+				C657547C1C20E2B700F8704D /* nfd.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +522,7 @@
 				F77D15FE0CEF6A7F000800A4 /* CPU.c in Sources */,
 				F77D15FF0CEF6A7F000800A4 /* CPUState.c in Sources */,
 				F77D16000CEF6A7F000800A4 /* CRAM.c in Sources */,
+				C657548E1C20E2B700F8704D /* nfd_cocoa.m in Sources */,
 				F77D16010CEF6A7F000800A4 /* Debug.c in Sources */,
 				F77D16020CEF6A7F000800A4 /* DebugWindow.c in Sources */,
 				F77D16030CEF6A7F000800A4 /* Disassembler.c in Sources */,
@@ -508,7 +550,7 @@
 				F77D16570CEF6D81000800A4 /* RasterDMultiColorBitmapwSpr.c in Sources */,
 				F77D16580CEF6D81000800A4 /* RasterDNormalTextwSprMode8bit.c in Sources */,
 				F77D16590CEF6D81000800A4 /* VICDSprites.c in Sources */,
-				F77D193C0CEFC912000800A4 /* FileHelpers.c in Sources */,
+				C657548F1C20E2B700F8704D /* nfd_common.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +581,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -560,6 +606,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = c64carbon_Prefix.pch;

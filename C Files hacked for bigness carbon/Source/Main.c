@@ -11,21 +11,23 @@
 |	Copyright �	1994, Alan Steremberg and Ed Wynne
 |
 \*-------------------------------------------------------------------------------*/
-#include <Carbon/Carbon.h>
+
+#include <SDL2/SDL.h>
+
 #include "ColorDrawing.h"
-#include	"Drawing.h"
+#include "Drawing.h"
 #include "DebugWindow.h"
 #include "Preference.h"
-#include	"Joystick.h"
+#include "Joystick.h"
 //#include "Profiler.h"
 #include "Event.h"
 #include "Menu.h"
 #include "Debug.h"
 #include "Emulator.h"
 #include "CPU.h"
-#include	"DeviceMenu.h"
+#include "DeviceMenu.h"
 #include "Combug.h"
-#include	"SID.h"
+#include "SID.h"
 #include "Main.h"
 
 #include <Assert.h>
@@ -42,13 +44,38 @@ int main(int argc,char **argv)
 	#endif
 
 	InitApplication();
-	
-	
+        
+        
+    //Main loop flag
+    bool quit = false;
+    
+    //Event handler
+    SDL_Event e;
+        
+    //While application is running
+    while( !quit )
+    {
+            //Handle events on queue
+        while( SDL_PollEvent( &e ) != 0 )
+        {
+            //User requests quit
+            if( e.type == SDL_QUIT )
+            {
+                quit = true;
+            }
+        }
+        
+#if	1
+        EmulatorRun();
+#else
+        fudge_drawing_vals();
+#endif
+        
+        CopyOffScreenToWindow();
+    }
 
-	while(!doEventLoop(0))
-		CheckAndFixPixelDepth();	//Eric says this can just be after the update event..
-	
-	CleanUpApplication();
+
+    CleanUpApplication();
 	
 	#if __profile__
 		ProfilerDump("\pCFiles.prof");
@@ -74,14 +101,14 @@ void InitApplication(void)
 //	InitMenus();
 //	TEInit();
 	//InitDialogs(nil);
-	InitCursor();
-	InitEvents();
-	InitAppMenus();
+	//InitCursor();
+	//InitEvents();
+	//InitAppMenus();
 
-	SetUpMontorDepths();
-	AboutItemProc(0,0);
+	//SetUpMontorDepths();
+	//AboutItemProc(0,0);
 
-	InitPreferences();
+	//InitPreferences();
 	InitDebug();
 	OpenCommodoreMonitorWindow();
 	BlastColorTestPattern();
@@ -89,8 +116,8 @@ void InitApplication(void)
 	InitDevices ();
 	InitJoystick();
 	InitCombug();
-	if (SoundInitialize()!=0)
-		DebugStr("\pMemory was not allocated");
+//	if (SoundInitialize()!=0)
+//		DebugStr("\pMemory was not allocated");
 
 
 }
@@ -105,10 +132,10 @@ void CleanUpApplication(void)
 	CleanUpCommodoreWindow();
 	CleanUpEmulator();
 	CleanUpDebug();
-	CleanUpPreferences();
+	//CleanUpPreferences();
 	CleanupDevices();
 //	#ifdef powerc
 	DisposeSounds();
-	CleanUpMonitorDepths();
+//	CleanUpMonitorDepths();
 //	#endif
 }

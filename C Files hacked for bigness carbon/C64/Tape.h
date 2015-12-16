@@ -1,1 +1,1 @@
-/*Tape.h*/void	TapeInitialize(void);void 	LoadTape(void);void	LoadTapeMixedMode(void);void 	LoadTapeFS(FSSpec *spec);
+/*Tape.h*/#include "nfd.h"void	TapeInitialize(void);void 	LoadTape(void);void	LoadTapeMixedMode(void);void 	LoadTapeFS(nfdchar_t  *spec);

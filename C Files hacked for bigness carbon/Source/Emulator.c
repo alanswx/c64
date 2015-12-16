@@ -54,7 +54,7 @@ extern unsigned long	gPCRegister;
 void InitEmulator(void)
 {
 	//	make the reset item (in the file menu) work
-	AddItemProc(FileResetItemProc,129,1);
+	//AddItemProc(FileResetItemProc,129,1);
 		
 	//	initialize the memory system
 	InitMemory();
@@ -119,7 +119,7 @@ void ResetEmulator(void)
 void HaltProcessor (void);
 void HaltProcessor (void)
 {
-DebugStr("\pShit, shouldn't get here..");
+fprintf(stderr,"Shit, shouldn't get here..");
 }
 
 void EmulatorRun(void)
@@ -162,6 +162,7 @@ void EmulatorRun(void)
 
 	}
 	
+    
 	//#if	powerc
 	CPU();
 //	#else

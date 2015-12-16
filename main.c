@@ -6,6 +6,8 @@
 //  Copyright __MyCompanyName__ 2007. All rights reserved.
 //
 
+#if 0
+
 #include <Carbon/Carbon.h>
 
 static OSStatus        AppEventHandler( EventHandlerCallRef inCaller, EventRef inEvent, void* inRefcon );
@@ -158,3 +160,4 @@ WindowEventHandler( EventHandlerCallRef inCaller, EventRef inEvent, void* inRefc
     
     return err;
 }
+#endif

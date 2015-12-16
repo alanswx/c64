@@ -24,10 +24,11 @@
 //	QD speed tricks - be sure ctseeds are the same from src to dest when using copybits
 //
 #include "DebugWindow.h"
+#include <SDL2/SDL.h>
 
 #include "Drawing.h"
 #include "Window.h"
-#include  <Carbon/Carbon.h>
+
 #include "ColorDrawing.h"
 
 
@@ -81,34 +82,22 @@ long				theOffScreenRowBytes;
 #endif
 Rect				theOffScreenRect;
 
-WindowPtr			theMonitorWindow=NULL;
+SDL_Window			*theMonitorWindow=NULL;
+SDL_Renderer        *sdlRenderer= NULL;
+SDL_Surface         *theSurface=NULL;
 
-
-//
-//	Check And Fix Pixel Depth
-//
-//	This function checks to see if the pixel depth has changed. If it has, it will update 
-//	all of our stuff.
-
-void	CheckAndFixPixelDepth()
-{
-	GDHandle			theScreen=NULL;
-	short				newdepth;
-	
-	theScreen=GetMainDevice();
-	newdepth=(**(**theScreen).gdPMap).pixelSize;
-
-	if (newdepth!=gPixelDepth)
-		{
-		UpdateBlastingParameters();
-		}
-}
 
 
 //
 //	This should be called before drawing directly to the screen, as well as when
 //	the user moves the window.
 //
+void	UpdateBlastingParameters ()
+{
+    theActiveBits = theOnScreenBits;
+    theActiveRowBytes = theOnScreenRowBytes;
+}
+#if 0
 
 void	UpdateBlastingParameters ()
 {
@@ -228,7 +217,9 @@ void	UpdateBlastingParameters ()
 	VICChangeVideoModes();
 
 }
+#endif
 
+#if 0
 void DragCommodoreWindow(WindowPtr	window,long refcon,Point start)
 {
 	GDHandle			theScreen=NULL;
@@ -275,10 +266,31 @@ void DragCommodoreWindow(WindowPtr	window,long refcon,Point start)
 	BlastColorTestPattern();
 }
 
+#endif
 
 //
 //	Copy the offscren world to the window - used during updates, safe mode, etc.
 //
+void CopyOffScreenToWindow(void)
+{
+   // fprintf(stderr,"CopyOffScreenToWindow %p\n",theActiveBits);
+if (theActiveBits!=NULL)
+{
+    //SDL_FillRect(theSurface, NULL, SDL_MapRGB(theSurface->format, 255, 0, 0));
+    SDL_LockSurface(theSurface);
+    int pixel=0; for (int i=0;i<16;i++) for (int j=0;j<16;j++) theActiveBits[pixel++]=i;
+    memcpy(theSurface->pixels,theActiveBits,theSurface->w*theSurface->h);
+
+    SDL_Texture *sdlTexture = SDL_CreateTextureFromSurface(sdlRenderer,theSurface);
+    SDL_RenderClear(sdlRenderer);
+    SDL_RenderCopy(sdlRenderer, sdlTexture, NULL, NULL);
+    SDL_RenderPresent(sdlRenderer);
+    SDL_DestroyTexture(sdlTexture);
+    SDL_UnlockSurface(theSurface);
+}
+}
+
+#if 0
 
 void	CopyOffScreenToWindow(void)
 {
@@ -318,6 +330,7 @@ else
 
 #endif
 }
+#endif
 
 //
 //
@@ -331,6 +344,7 @@ void UpdateCommodoreWindow(WindowPtr window,long refcon)
 
 void ToggleCommodoreWindowSize ()
 {
+#if 0
 //#if	DRAWOFFSCREEN
 if (gDoubleSize)
 	{
@@ -344,6 +358,7 @@ else
 	gDoubleSize=true;
 	}
 //#endif
+#endif
 UpdateBlastingParameters();
 }
 //
@@ -351,6 +366,75 @@ UpdateBlastingParameters();
 //	table to work with direct screen drawing.
 //
 
+
+
+SDL_Color palette[16] = {
+{0x00 ,0x00 ,0x00},
+{0xFF, 0xFF, 0xFF},
+{0x68, 0x37, 0x2B},
+{0x70, 0xA4, 0xB2},
+{0x6F, 0x3D, 0x86},
+{0x58, 0x8D, 0x43},
+{0x35, 0x28, 0x79},
+{0xB8, 0xC7, 0x6F},
+{0x6F, 0x4F, 0x25},
+{0x43, 0x39, 0x00},
+{0x9A, 0x67, 0x59},
+{0x44, 0x44, 0x44},
+{0x6C, 0x6C, 0x6C},
+{0x9A, 0xD2, 0x84},
+{0x6C, 0x5E, 0xB5},
+{0x95, 0x95, 0x95}
+};
+
+
+
+void	OpenCommodoreMonitorWindow ()
+{
+    // create the window that the C64 will live in
+    int width = 320;
+    int height = 200;
+    
+    theMonitorWindow = SDL_CreateWindow( "C64 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN  );
+    sdlRenderer= SDL_CreateRenderer(theMonitorWindow, -1, 0);
+
+    
+    // create our offscreen bits to draw into
+    theOnScreenBits = malloc(width * height);
+    theOnScreenRowBytes = width;
+    theActiveBits = theOnScreenBits;
+    theActiveRowBytes = theOnScreenRowBytes;
+
+    
+    // create the texture that we will have the pixels draw into
+    theSurface = SDL_CreateRGBSurface(0, width, height, 8,  0, 0, 0, 0);
+
+    // set the palette
+    SDL_SetPaletteColors(theSurface->format->palette,  palette, 0, 16);
+    
+#if 0
+    SDL_Texture *sdlTexture = SDL_CreateTextureFromSurface(sdlRenderer,theSurface);
+    SDL_RenderClear(sdlRenderer);
+    SDL_RenderCopy(sdlRenderer, sdlTexture, NULL, NULL);
+    SDL_RenderPresent(sdlRenderer);
+    SDL_DestroyTexture(sdlTexture);
+    SDL_UnlockSurface(hbm);
+#endif
+    
+    for (int i=0;i<400;i++)
+        gTheActiveBitsArray[i]=theActiveBits+(theActiveRowBytes*i);
+    
+    //
+    //	Be sure we are in the right video mode..
+    //
+    VICChangeVideoModes();
+
+    InitializeDrawingTables();
+
+    
+}
+
+#if 0
 void	OpenCommodoreMonitorWindow ()
 {
 	commodoreWindowInfoPtr		theWinInfo;
@@ -461,11 +545,20 @@ void	OpenCommodoreMonitorWindow ()
 			}
 		}
 }
+#endif
+
 
 //
 //	Clean Up Everything We Allocated
 //
+void	CleanUpCommodoreWindow()
+{
+// TODO - dispose of stuff
+    DisposeDrawingTables();
 
+}
+
+#if 0
 void	CleanUpCommodoreWindow()
 {
 	commodoreWindowInfoPtr	theWinInfo;
@@ -490,6 +583,7 @@ void	CleanUpCommodoreWindow()
 
 
 }
+#endif
 
 //
 //	This will draw our color bar in the top left part of the border. This is useful for
@@ -536,57 +630,6 @@ void	BlastColorTestPattern ()
 }
 
 
-short		gOldPixelDepth;
-Boolean		gChangedPixelDepth=false;
-GDHandle	gScreen;
-
-void	SetUpMontorDepths(void)
-{
-#if 1
-	GDHandle	theScreen;
-	OSErr		iErr;
-	short		oldPixelDepth;
-	
-
-	//
-	//	Grab the handle to the main screen device
-	//	%%% Should change this to find screen window resides on...
-	//
-	
-	theScreen=GetMainDevice();
-	oldPixelDepth=(**(**theScreen).gdPMap).pixelSize;
-
-	if (oldPixelDepth!=8)
-	{
-		if (HasDepth(theScreen,8,0,0))
-		{
-			//
-			// store away old pixeldepth?
-			//
-			gChangedPixelDepth=true;
-			gOldPixelDepth=oldPixelDepth;
-			gScreen=theScreen;
-			iErr = SetDepth(theScreen,8,0,0);
-			if (iErr!=noErr)
-				DebugStr("\p Failed to set the bit depth to 8 bit");
-		}
-		else
-		{
-			DebugStr("\p This monitor does not have 8 bit");
-		}
-	}
-	
-#endif
-}
 
 
-void	CleanUpMonitorDepths(void)
-{
-#if 1
-	if (gChangedPixelDepth)
-	{
-		SetDepth(gScreen,gOldPixelDepth,0,0);
-	}
-	
-#endif
-}
+

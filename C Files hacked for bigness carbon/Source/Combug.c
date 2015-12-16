@@ -63,7 +63,7 @@ extern Ptr						gCombugScrollBackBuffer;
 extern unsigned	long		gCombugTotalScrollBackLines;
 extern unsigned	long		gCombugScrollValue;
 extern char						gCommandLineBuffer[];
-extern	CWindowPtr			theMonitorWindow;
+extern	WindowPtr			theMonitorWindow;
 
 
 
@@ -82,7 +82,16 @@ Ptr				gSymbolTable = NULL;
 
 void InitCombug(void)
 {
-	Handle	data;
+
+}
+void DrawCombugWindow(void)
+{
+    
+}
+#if 0
+void InitCombug(void)
+{
+    Handle	data;
 	Point	where;
 	short	visible;
 	
@@ -91,7 +100,7 @@ void InitCombug(void)
 	//
 //	Allocate space for the scrollback
 //
-	gCombugScrollBackBuffer = (char*)NewPtrClear(70*kScrollBackBufferSize);
+	gCombugScrollBackBuffer = (char*)calloc(70,kScrollBackBufferSize);
 //	assert (gCombugScrollBackBuffer!=NULL);
 	if (gCombugScrollBackBuffer==NULL)
 		DebugStr("\p Died in initialization of scrollback buffer");
@@ -160,10 +169,15 @@ void InitCombug(void)
 	}
 }
 
+#endif
 
 
 
-
+void CleanUpCombug(void)
+{
+    
+}
+#if 0
 void CleanUpCombug(void)
 {
 	GrafPtr	savedPort;
@@ -207,7 +221,7 @@ void CleanUpCombug(void)
 	}
 }
 
-
+#endif
 
 
 
@@ -219,7 +233,7 @@ void CombugWindowCloseProc(WindowPtr window,long refcon)
 
 
 
-
+#if 0
 void CombugWindowUpdateProc(WindowPtr window,long refcon)
 {
 	PixMapHandle	pixBase=GetGWorldPixMap(gCombugWorld);
@@ -240,9 +254,10 @@ void CombugWindowUpdateProc(WindowPtr window,long refcon)
 
 }
 
+#endif
 
 
-
+#if 0
 
 void CombugMenuProc(short menu,short item)
 {
@@ -272,7 +287,7 @@ void CombugMenuProc(short menu,short item)
 	DrawCombugWindow();
 }
 
-
+#endif
 
 
 
@@ -315,7 +330,7 @@ void ToggleCombugWindow(void)
 
 
 
-
+#if 0
 void DrawCombugWindow(void)
 {
 	GDHandle	gdh;
@@ -353,6 +368,7 @@ void DrawCombugWindow(void)
 	SetPort((GrafPtr)port);
 }
 
+#endif
 
 
 
@@ -368,14 +384,17 @@ void CombugPrintf(char *format,...)
 	len = (long)vsprintf(string,format,argptr);
 	va_end (argptr);
 	
-	CtoPstr(string);
-	DrawString((StringPtr)string);
+//	CtoPstr(string);
+//	DrawString((StringPtr)string);
 }
 
 
 
-
-
+void DrawRegisters(void)
+{
+    
+}
+#if 0
 void DrawRegisters(void)
 {
 	char	s[10],t[10];
@@ -418,9 +437,15 @@ void DrawRegisters(void)
 }
 
 
+#endif
 
 
 
+void DrawDisassembly(void)
+{
+    
+}
+#if 0
 void DrawDisassembly(void)
 {
 	unsigned long	op,len,index;
@@ -451,7 +476,7 @@ void DrawDisassembly(void)
 	}
 }
 
-
+#endif
 
 
 
@@ -647,7 +672,7 @@ void FindAddrModeSymbol(char *symbol,unsigned short address)
 	base = FindCombugSymbol(name,address);
 	if (!base)
 	{
-		sprintf(symbol,"$%04lX",address);
+		sprintf(symbol,"$%04X",address);
 		return;
 	}
 	
@@ -661,7 +686,7 @@ void FindAddrModeSymbol(char *symbol,unsigned short address)
 	{
 		if (strlen(name) > kMaxAddrModeSymbolLength)
 			name[kMaxAddrModeSymbolLength] = '\0';
-		sprintf(symbol,"%s+$%04lX",name,(unsigned long)(address-base));
+		sprintf(symbol,"%s+$%04X",name,(unsigned long)(address-base));
 	}
 }
 
@@ -687,9 +712,9 @@ unsigned short FindCombugSymbol(char *symbol,unsigned short address)
 			if ((sym->address <= address) && (sym->address > match))
 			{
 				match = sym->address;
-				PtoCstr(sym->symbol);
+			//	PtoCstr(sym->symbol);
 				strcpy(symbol,(char*)sym->symbol);
-				CtoPstr((char*)sym->symbol);
+			//	CtoPstr((char*)sym->symbol);
 			}
 			
 			walk += sym->symbol[0]+3 + (sym->symbol[0]+3)%2;

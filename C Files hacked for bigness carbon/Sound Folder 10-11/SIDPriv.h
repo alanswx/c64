@@ -1,5 +1,7 @@
 /*SIDPriv.h*/
 
+#if 0
+
 /* Control Register Masks */
 #define	kGateMask		0x01
 #define	kSyncMask		0x02
@@ -150,3 +152,6 @@ long	gL,gB,gH,gF1,gD1=0,gD2=0;
 float	gQ1;
 FilterType	gFilterType;
 Boolean		gFilter1;*/
+
+
+#endif

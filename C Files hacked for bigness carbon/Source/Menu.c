@@ -21,6 +21,8 @@
 /*	Extern globals	*/
 extern short			gQuitFlag;
 
+#if 0
+
 /*	Local globals	*/
 MenuItemProcHandle	gItemProcs;
 
@@ -171,3 +173,4 @@ void FileQuitItemProc(short menu,short item)
 {
 	gQuitFlag = 1;
 }
+#endif

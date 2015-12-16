@@ -1,12 +1,14 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "nfd.h"
 
 #include "Serial.h"
 #include "Floppy.h"
 #include "FileTypes.h"
 #include "DebugWindow.h"
 #include "FileHelpers.h"
+
 
 #define	InternalError(a)	debug_window_printf("Internal Error");
 
@@ -100,7 +102,7 @@ static byte floppy_find_buffer[256];
 static int floppy_find_current_track;
 static int floppy_find_current_sector;
 
-short     FloppyActiveFd = -1;
+FILE *     FloppyActiveFd = -1;
 
 static char *floppy_find_name;
 static int floppy_find_length;
@@ -894,10 +896,12 @@ static int floppy_read_block(unsigned char *buf, int track, int sector)
 	offset=offset_from_track_and_sector(track, sector);
 	if (offset<0) return -1;
 
-	SetFPos(FloppyActiveFd, fsFromStart, offset);
+    int result = fseek(FloppyActiveFd,  offset, SEEK_SET);
+//	SetFPos(FloppyActiveFd, fsFromStart, offset);
 	len=256;
-	FSRead(FloppyActiveFd, &len, buf);
-	if (len<256) 
+    //FSRead(FloppyActiveFd, &len, buf);
+    len = fread(FloppyActiveFd,len,1,buf);
+	if (len<256)
 		{
 //
 //	we should fix this to cause a commodore error
@@ -906,7 +910,7 @@ static int floppy_read_block(unsigned char *buf, int track, int sector)
 		debug_window_printf("Floppy Read Error!");
 		floppy_close_all_channels();
 	
-		if (floppyInDrive) FSClose(FloppyActiveFd);
+		if (floppyInDrive) fclose(FloppyActiveFd);
 		floppyInDrive=0;
 		FloppyActiveFd=-1;
 		return -1;
@@ -927,9 +931,11 @@ static int floppy_write_block(unsigned char *buf, int track, int sector)
 	offset=offset_from_track_and_sector(track, sector);
 	if (offset<0) return -1;
 
-	SetFPos(FloppyActiveFd, fsFromStart, offset);
+    fseek(FloppyActiveFd,offset, SEEK_SET);
+//	SetFPos(FloppyActiveFd, fsFromStart, offset);
 	len=256;
-	FSWrite(FloppyActiveFd, &len, buf);
+	//FSWrite(FloppyActiveFd, &len, buf);
+    len = fwrite(buf,len,1,FloppyActiveFd);
 	if (len<256) debug_window_printf("Floppy write error");
 	return 0;
 }
@@ -1504,11 +1510,11 @@ static int do_block_command(char command, char *buffer)
 
 
 
-void AttachFloppyImage(FSSpec *spec)
+void AttachFloppyImage(nfdchar_t *spec)
 {
 	floppy_close_all_channels();
 
-	if (floppyInDrive) FSClose(FloppyActiveFd);
+	if (floppyInDrive) fclose(FloppyActiveFd);
 	floppyInDrive=0;
 
 	if (spec==NULL)
@@ -1516,8 +1522,7 @@ void AttachFloppyImage(FSSpec *spec)
 		floppyInDrive=0;
 		return;
 	}
-
-	if (FSpOpenDF(spec, fsRdWrPerm, &FloppyActiveFd)!=noErr)
+	if ((FloppyActiveFd = fopen(spec, "rw"))==NULL)
 	{
 		floppyInDrive=0;
 		return;
@@ -1534,40 +1539,50 @@ static int mystrncpy(unsigned char *d, unsigned char *s, int n)
 	return (n);
 }
 
-void CreateImage(FSSpec *spec)
+void CreateImage(nfdchar_t *spec)
 {
 	byte block[256];
 	int	i;
 	long len;
-	short fnum;
+	//short fnum;
+    FILE *theFile= NULL;
 	
 	for (i=0; i<256; i++) block[i]=0;
 
-	FSpCreate(spec, (OSType)APPLTYPE, (OSType)DISKFTYPE, 0);
-	FSpOpenDF(spec, fsRdWrPerm, &fnum);
+    theFile = fopen(spec,"rw");
+    
+	//FSpCreate(spec, (OSType)APPLTYPE, (OSType)DISKFTYPE, 0);
+	//FSpOpenDF(spec, fsRdWrPerm, &fnum);
 	
 	len=256;
-	for (i=0; i < 683; i++) FSWrite(fnum, &len, block);
-	FSClose(fnum);
+    for (i=0; i < 683; i++) fwrite(block,1,len,theFile);
+//    for (i=0; i < 683; i++) FSWrite(fnum, &len, block);
+	//FSClose(fnum);
+    fclose(theFile);
 }
 
 
 void FloppyCreateImage(void)
 {
 //	StandardFileReply reply;
-   FSSpec                     chosenFile;
+//   FSSpec                     chosenFile;
 
 	static char *initString="N0:MAC64 FLOPPY,00";
 	
-	OSErr err=SimpleNavPutFile(kNavGenericSignature,kNavGenericSignature, &chosenFile);
+    nfdchar_t *savePath = NULL;
+    nfdresult_t result = NFD_SaveDialog( "D64", NULL, &savePath );
+
+    
+//	OSErr err=SimpleNavPutFile(kNavGenericSignature,kNavGenericSignature, &chosenFile);
 //	StandardPutFile("\pCreate New Image:", "\pDISK.D64", &reply);
 	
 //	if (reply.sfGood)
-if(err == noErr)
+//if(err == noErr)
+    if ( result == NFD_OKAY )
 	{
 		
-		CreateImage(&chosenFile);
-		AttachFloppyImage(&chosenFile);
+		CreateImage(savePath);
+		AttachFloppyImage(savePath);
 		do_command_channel_write((byte *)initString, strlen(initString));
 
 	}
@@ -1576,16 +1591,19 @@ if(err == noErr)
 
 Boolean FloppySelectImage(void)
 {
-	FSSpec theFileSpec;
+//	FSSpec theFileSpec;
 //	StandardFileReply reply;
 //	SFTypeList			types;
-	OSErr err=SimpleNavGetFile(&theFileSpec);
+	//OSErr err=SimpleNavGetFile(&theFileSpec);
+    nfdchar_t *outPath = NULL;
+    nfdresult_t result = NFD_OpenDialog( "D64", NULL, &outPath );
 
 	//StandardGetFile(nil, (short)-1, types, &reply);
 	//if (reply.sfGood)
-	if (err==noErr)
+	//if (err==noErr)
+    if ( result == NFD_OKAY )
 	{
-		AttachFloppyImage(&theFileSpec);
+		AttachFloppyImage(outPath);
 		do_initialize();
 		return TRUE;
 	}
@@ -1598,6 +1616,8 @@ Boolean FloppySelectImage(void)
 
 void FloppyCopyTo(void)
 {
+    // AJS fix this
+#if 0
 //	StandardFileReply reply;
 	short fNum;
 	long size;
@@ -1610,7 +1630,10 @@ void FloppyCopyTo(void)
 		debug_window_printf("No Floppy Image");
 		return;
 	}
-		
+
+    nfdchar_t *outPath = NULL;
+    nfdresult_t result = NFD_OpenDialog( "t64", NULL, &outPath );
+
 	OSErr err=SimpleNavGetFile(&theFileSpec);
 	//StandardGetFile(nil, (short)-1, types, &reply);
 	if (err=noErr)
@@ -1628,7 +1651,7 @@ void FloppyCopyTo(void)
 		FSClose(fNum);
 		Close1541(1);
 	}
-	
+#endif
 }
 
 int ExternalRead(unsigned char *buf, int track, int sector)

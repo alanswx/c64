@@ -55,29 +55,37 @@ void InitMemory(void)
 	
 	
 	//	allocate pointers for RAM storage and ROM copies
-	gRAMBlock = (unsigned char*)NewPtrClear(65536);
+	gRAMBlock = (unsigned char*)calloc(65536,1);
 	assert (gRAMBlock!=NULL);
-	gBasicROM = (unsigned char*)NewPtrClear(8192);
+	gBasicROM = (unsigned char*)calloc(8192,1);
 	assert (gBasicROM!=NULL);
-	gCharROM = (unsigned char*)NewPtrClear(4096);
+	gCharROM = (unsigned char*)calloc(4096,1);
 	assert (gCharROM!=NULL);
-	gKernalROM = (unsigned char*)NewPtrClear(8192);
+	gKernalROM = (unsigned char*)calloc(8192,1);
 	assert (gKernalROM!=NULL);
 	//	load the BASIC ROMs
+    fprintf(stderr,"AJS = LOAD ROMS HERE\n");
+    fprintf(stderr,"AJS = AFTER ROMS HERE  %c\n",gBasicROM[0]);
+#if 1
 	data = Get1Resource(kROMResType,kBasicROMResID);
-	BlockMove(*data,gBasicROM,8192);
+//	BlockMove(*data,gBasicROM,8192);
+    memcpy(gBasicROM,*data,8192);
 	ReleaseResource(data);
 	
 	//	load the CHAR ROMs
 	data = Get1Resource(kROMResType,kCharROMResID);
-	BlockMove(*data,gCharROM,4096);
+//    BlockMove(*data,gCharROM,4096);
+    memcpy(gCharROM,*data,4096);
 	ReleaseResource(data);
 	
 	//	load the KERNAL ROMs
 	data = Get1Resource(kROMResType,kKernalROMResID);
-	BlockMove(*data,gKernalROM,8192);
+   // BlockMove(*data,gKernalROM,8192);
+    memcpy(gKernalROM,*data,8192);
 	ReleaseResource(data);
-	
+#endif
+    fprintf(stderr,"AJS = AFTER ROMS HERE  %c\n",gBasicROM[0]);
+
 	#if 0
 	
 	temp = (long*)READTable;

@@ -26,7 +26,7 @@
 
 
 
-
+#if 0
 
 /*	local constants	*/
 #define	kVLineOffset						10
@@ -266,3 +266,5 @@ void CombugMoveScrollBackDown(void)
 				DrawCombugWindow();
 			}
 }
+
+#endif

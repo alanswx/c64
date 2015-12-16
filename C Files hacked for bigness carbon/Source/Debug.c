@@ -22,7 +22,9 @@
 #include "SID.h"
 #include "ColorDrawing.h"
 
+Boolean		gVerbose = FALSE;
 
+#undef DEBUG
 
 
 /*	local globals */
@@ -183,7 +185,7 @@ void UpdateSpeedWindow(float speed)
 	char		s[20];
 	
 	return; // AJS
-	
+#if 0
 	sprintf(s,"%f MHz  ",speed);
 	CtoPstr(s);
 	
@@ -204,4 +206,5 @@ void UpdateSpeedWindow(float speed)
 	debug_window_printf("two: %ld",two);two=0;
 	debug_window_printf("thr: %ld",thr);thr=0;
 	#endif
+#endif
 }

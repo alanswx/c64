@@ -8,6 +8,25 @@
 
 #define TURNSIDOFF 1
 
+#if 1
+void SIDWrite(unsigned long address,unsigned long value)
+{
+    
+}
+unsigned long SIDRead(unsigned long address)
+{
+    return 0;
+}
+void DisposeSounds (void)
+{
+
+}
+void ToggleSound (void)
+{
+
+}
+#else
+
 /*local globals*/
 EGStage	stage1;
 
@@ -927,3 +946,4 @@ void ToggleSound (void)
 	gSoundOn = !gSoundOn;
 #endif
 }
+#endif
