@@ -17,6 +17,7 @@
 #define		_COLORDRAWING_
 
 
+#include <SDL2/SDL.h>
 
 #ifndef __PALETTES__
 //#include <Palettes.h>
