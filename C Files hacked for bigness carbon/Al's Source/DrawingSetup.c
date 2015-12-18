@@ -33,16 +33,16 @@ extern	Boolean	gDoubleSize;
 //
 //	The border color is already extended to be a long, and be a correct 'Mac' color index
 //
-unsigned	long	gBorderColor;
+UInt32	gBorderColor;
 
 //
 //	The array of background colors is already extended and each is a correct 'Mac' color index
 //
-unsigned	long	gAndBackColor[4];
+UInt32	gAndBackColor[4];
 unsigned	char	gBackColorsUnconverted[4];
 
-unsigned	long	**Normal_ColorTable;
-unsigned	long	*gRasterBasedOffset;
+UInt32	**Normal_ColorTable;
+UInt32	*gRasterBasedOffset;
 
 //
 //	This is a table to convert a commodore color into a correct mac color index. This is because
@@ -52,7 +52,7 @@ unsigned	long	*gRasterBasedOffset;
 
 //	This table is the 4 bit conversion color table
 //
-unsigned long fourBitTable[16] =
+UInt32 fourBitTable[16] =
 	{
 	0xFFFFFFFF,
 	0x00000000,
@@ -74,7 +74,7 @@ unsigned long fourBitTable[16] =
 
 //	This table is the 8 bit conversion color table
 //
-unsigned long eightBitTable[16] =
+UInt32 eightBitTable[16] =
 	{
 	0x01010101,
 	0x02020202,
@@ -97,7 +97,7 @@ unsigned long eightBitTable[16] =
 
 
 
-unsigned	long	Normal_FourBitColorTable[256];
+UInt32	Normal_FourBitColorTable[256];
 
 
 //
@@ -105,18 +105,18 @@ unsigned	long	Normal_FourBitColorTable[256];
 //	The other 8 are the multicolor colors/patterns.
 //
 
-unsigned	long	Multi_Color0[16];
-unsigned	long	Multi_Color1[16];
-unsigned	long	Multi_Color2[16];
-unsigned	long	Multi_Color3[16];
-unsigned	long	Multi_Color4[16];
-unsigned	long	Multi_Color5[16];
-unsigned	long	Multi_Color6[16];
-unsigned	long	Multi_Color7[16];
-unsigned	long	*Multi_ColorTable[16] = 
+UInt32	Multi_Color0[16];
+UInt32	Multi_Color1[16];
+UInt32	Multi_Color2[16];
+UInt32	Multi_Color3[16];
+UInt32	Multi_Color4[16];
+UInt32	Multi_Color5[16];
+UInt32	Multi_Color6[16];
+UInt32	Multi_Color7[16];
+UInt32	*Multi_ColorTable[16] =
 	{NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL, Multi_Color0, Multi_Color1, Multi_Color2, Multi_Color3, Multi_Color4, Multi_Color5, Multi_Color6, Multi_Color7 };
 
-unsigned	long			**gNastyColorTable;
+UInt32			**gNastyColorTable;
 
 
 
@@ -149,7 +149,7 @@ void	BuildMultiColorTable8Bit()
 {
 register	short	h,i,k,j;
 
-unsigned	long	oldcolor=gAndBackColor[3];
+UInt32	oldcolor=gAndBackColor[3];
 
 	for (k=8;k<16;k++)
 		{
@@ -219,7 +219,7 @@ switch (gPixelDepth)
 void	UpdateBackgroundColor_NormalText(void)
 {
 register	short	i,j;
-static	unsigned	long	lastbackcolor=0;
+static	UInt32	lastbackcolor=0;
 static	short	emptycache=0;
 Boolean	NormalMode;
 
@@ -262,7 +262,7 @@ void	InitializeDrawingTables (void)
 	//	Allocate Raster Offset Table
 	//
 	
-	gRasterBasedOffset = (unsigned long *)NewPtr(sizeof(long)*200);
+	gRasterBasedOffset = (UInt32 *)malloc(sizeof(UInt32)*200);
 	assert (gRasterBasedOffset!=NULL);
 	
 	for (i=0;i<200;i++)
@@ -282,5 +282,5 @@ void	DisposeDrawingTables(void)
 {
 	debug_window_printf("Disposing Drawing Tables");
 	
-	DisposePtr((Ptr)gRasterBasedOffset);
+	free(gRasterBasedOffset);
 }

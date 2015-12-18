@@ -36,7 +36,7 @@
 //	From DrawingGlobals.h
 //
 
-extern	unsigned	long	fourBitTable[16];
+extern	UInt32	fourBitTable[16];
 //
 //	These constants need to be moved to the header
 //
@@ -50,7 +50,7 @@ extern	unsigned	long	fourBitTable[16];
 //
 
 unsigned char 			*theActiveBits;
-long					theActiveRowBytes;
+UInt32					theActiveRowBytes;
 unsigned char 			*originaltheActiveBits;
 
 unsigned	char		*gTheActiveBitsArray[400];
@@ -64,7 +64,7 @@ Boolean					gDoubleSize=FALSE;
 //
 
 static	unsigned char 	*theOnScreenBits; 
-static	long			theOnScreenRowBytes;
+static	UInt32			theOnScreenRowBytes;
 
 
 //
@@ -76,7 +76,7 @@ GWorldPtr			gOffScreenWorld=NULL;
 PixMapHandle		gOffScreenPixMap=NULL;
 
 unsigned char 		*theOffScreenBits; 
-long				theOffScreenRowBytes;
+UInt32				theOffScreenRowBytes;
 
 
 #endif
@@ -139,7 +139,7 @@ void	UpdateBlastingParameters ()
 		//
 	
 		theOnScreenBits=(unsigned char *)(**(**theScreen).gdPMap).baseAddr; 
-		theOnScreenRowBytes=(long)( (**(**theScreen).gdPMap).rowBytes & 0x0007FFF);
+		theOnScreenRowBytes=(UInt32)( (**(**theScreen).gdPMap).rowBytes & 0x0007FFF);
 
 		//gPixelDepth=(**(**theScreen).gdPMap).pixelSize;
 		gPixelDepth=8; // AJS
@@ -398,52 +398,26 @@ SDL_Color palette2[16] = {
     {0x95, 0x95, 0x95}
 };
 SDL_Color palette[16] = {
-    {0x00 ,0x00 ,0x00},
+    {0x00 ,0x00 ,0x00}, //0
+    {0x00 ,0x00 ,0x00}, //0
     {0xFF, 0xFF, 0xFF},
-    {0xFF, 0x00, 0x00},
+    {0xFF, 0x00, 0x00}, //2
     {0x00, 0xFF, 0xFF},
-    {0xFF, 0x00, 0xFF},
+    {0xFF, 0x00, 0xFF},  //4
     {0x00, 0xFF, 0x00},
-    {0x00, 0x00, 0xFF},
+    {0x00, 0x00, 0xFF},  //6
     {0xFF, 0xFF, 0x00},
-    {0xff, 0x7F, 0x00},
+    {0xff, 0x7F, 0x00},  //8
     {0x7F, 0x2F, 0x00},
-    {0xFF, 0x80, 0x80},
+    {0xFF, 0x80, 0x80},  //10 (A)
     {0x40, 0x40, 0x40},
-    {0x7f, 0x7f, 0x7f},
+    {0x7f, 0x7f, 0x7f},  //12 (C)
     {0x7f, 0xff, 0x7f},
-    {0x7f, 0xbf, 0xff},
+    {0x7f, 0xbf, 0xff},  //14 (E)
     {0xbf, 0xbf, 0xbf},
 };
 
-#if 0
-"00 00 00
-00 00 00
-00 0F 00
-00 00 00
-00 00 00
-00 00 01
-FF FF FF
-FF FF FF
-00 02 FF
-FF 00 00
-00 00 00
-03 00 00
-FF FF FF
-FF 00 04
-FF FF 00
-00 FF FF
-00 05 00
-00 FF FF
-00 00 00
-06 00 00
-00 00 FF FF
-"0007 FFFF FFFF 0000 0008 FFFF 7FFF 0000"            /* ..ˇˇˇˇ....ˇˇ.ˇ.. */
-$"0009 7FFF 2FFD 0000 000A FFFF 8000 8000"            /* .∆.ˇ/˝...¬ˇˇÄ.Ä. */
-$"000B 4000 4000 4000 000C 7FFF 7FFF 7FFF"            /* ..@.@.@....ˇ.ˇ.ˇ */
-$"000D 7FFF FFFF 7FFF 000E 7FFF BFFF FFFF"            /* ...ˇˇˇ.ˇ...ˇøˇˇˇ */
-$"000F BFFF BFFF BFFF"                                /* ..øˇøˇøˇ */
-#endif
+
 
 
 void	OpenCommodoreMonitorWindow ()
@@ -469,7 +443,7 @@ void	OpenCommodoreMonitorWindow ()
 
     
     // set the palette
-    SDL_SetPaletteColors(theSurface->format->palette,  palette, 0, 16);
+    SDL_SetPaletteColors(theSurface->format->palette,  palette, 0, 17);
     
 #if 0
     SDL_Texture *sdlTexture = SDL_CreateTextureFromSurface(sdlRenderer,theSurface);
