@@ -218,10 +218,10 @@ switch (gPixelDepth)
 
 void	UpdateBackgroundColor_NormalText(void)
 {
-register	short	i,j;
+register	short	i/*,j*/;
 static	UInt32	lastbackcolor=0;
-static	short	emptycache=0;
-Boolean	NormalMode;
+//static	short	emptycache=0;
+//Boolean	NormalMode;
 
 if (gDoubleSize==TRUE)
 {

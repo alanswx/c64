@@ -31,7 +31,7 @@ Boolean		gVerbose = FALSE;
 #if		DEBUG
 	WindowPtr	gSpeedWindow = NULL;
 	Boolean		gVerbose = FALSE;
-#endif	DEBUG
+#endif	//DEBUG
 
 
 

@@ -293,11 +293,12 @@ void CombugMenuProc(short menu,short item)
 
 void ToggleCombugWindow(void)
 {
+#if 0
 	MenuHandle	menu;
 	Str255		text;
 	
 	
-	static shown=0;
+	static int shown=0;
 	
 	if (shown)
 	{
@@ -310,7 +311,6 @@ void ToggleCombugWindow(void)
 		ShowWindow(gCombugWindow);
 		shown=1;
 	}
-#if 0	
 	menu = GetMenu(kCombugMENURsrcID);
 	GetMenuItemText(menu,1,text);
 	
@@ -686,7 +686,7 @@ void FindAddrModeSymbol(char *symbol,unsigned short address)
 	{
 		if (strlen(name) > kMaxAddrModeSymbolLength)
 			name[kMaxAddrModeSymbolLength] = '\0';
-		sprintf(symbol,"%s+$%04X",name,(unsigned long)(address-base));
+		sprintf(symbol,"%s+$%04lX",name,(unsigned long)(address-base));
 	}
 }
 

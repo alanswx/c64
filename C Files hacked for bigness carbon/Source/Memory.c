@@ -50,7 +50,7 @@ unsigned char	*gKernalROM = NULL;
 void InitMemory(void)
 {
 	Handle	data;
-	long		*temp;
+//	long		*temp;
 	//long		index;
 	
 	
@@ -143,13 +143,13 @@ void CleanUpMemory(void)
 {
 	//	dispose of allocated memory
 	if (gRAMBlock)
-		DisposePtr((Ptr)gRAMBlock);
+		free(gRAMBlock);
 	if (gBasicROM)
-		DisposePtr((Ptr)gBasicROM);
+		free(gBasicROM);
 	if (gCharROM)
-		DisposePtr((Ptr)gCharROM);
+		free(gCharROM);
 	if (gKernalROM)
-		DisposePtr((Ptr)gKernalROM);
+		free(gKernalROM);
 }
 
 
@@ -189,10 +189,13 @@ void DumpMemory(void)
 
 void InitPageTables(void)
 {
+#if 0
 	long	*temp;
-	
-	
-	//debug_window_printf("Memory mode switch: PDR = %lX",(long int)gRAMBlock[1]&0x07);
+#endif
+    
+    fprintf(stderr,"InitPageTables\n");
+    fprintf(stderr,"Memory mode switch: PDR = %lX\n",(long int)gRAMBlock[1]&0x07);
+   //debug_window_printf("Memory mode switch: PDR = %lX",(long int)gRAMBlock[1]&0x07);
 	switch(gRAMBlock[1]&0x07)
 	{
 		case 0x07:	//	111	BASIC:IN, IO:IN, CHAR:OUT, KERNAL:IN
@@ -348,6 +351,7 @@ void InitPageTables(void)
 unsigned long RAMRead(unsigned long address)
 //#endif
 {
+    fprintf(stderr,"RAMRead (unmolested) address %lx \n",address);
 	return gRAMBlock[address];
 }
 
@@ -411,6 +415,7 @@ void PageZeroWrite(unsigned long address,unsigned long value)
 unsigned long BasicROMRead(unsigned long address)
 //#endif
 {
+    fprintf(stderr,"BasicROMRead  address %lx %lx\n",address,address-0xA000);
 	return gBasicROM[address-0xA000];
 }
 
@@ -428,6 +433,8 @@ unsigned long BasicROMRead(unsigned long address)
 unsigned long CharROMRead(unsigned long address)
 //#endif
 {
+    fprintf(stderr,"CharROMRead  address %lx %lx\n",address,address-0xD000);
+
 	return gCharROM[address-0xD000];
 }
 
@@ -445,5 +452,7 @@ unsigned long CharROMRead(unsigned long address)
 unsigned long KernalROMRead(unsigned long address)
 //#endif
 {
+    //fprintf(stderr,"KernalROMRead  address %lx %lx\n",address,address-0xD000);
+
 	return gKernalROM[address-0xE000];
 }

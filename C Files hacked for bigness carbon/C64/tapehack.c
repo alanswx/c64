@@ -176,7 +176,7 @@ void LoadTape(void)
 void LoadTapeMixedMode(void)
 {
 //	StandardFileReply reply;
-	EventRecord			pullKey;
+//	EventRecord			pullKey;
 //	SFTypeList			types;
 
 	//pull key out of event queue

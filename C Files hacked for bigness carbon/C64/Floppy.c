@@ -172,7 +172,7 @@ int FloppyInitialize(void)
 {
 	int i;
 	
-	dirBuffer=(unsigned char *)NewPtr(8192);
+	dirBuffer=(unsigned char *)malloc(8192);
 	assert (dirBuffer!=NULL);
 	
 	for (i=0; i<15; i++) floppy_buffers[i].mode=BUFFER_NOT_IN_USE;
@@ -191,7 +191,7 @@ int FloppyInitialize(void)
 
 void	FloppyCleanup (void)
 {
-	DisposePtr((Ptr)dirBuffer);
+	free(dirBuffer);
 }
 
 byte Open1541(char *name, int length, int secondary)
@@ -210,10 +210,10 @@ byte Open1541(char *name, int length, int secondary)
      */
     if (FloppyActiveFd < 0)
     	{
-		EventRecord			pullKey;
+		//EventRecord			pullKey;
 		
 		//pull key out of event queue
-		WaitNextEvent(keyDownMask,&pullKey,0,NULL);
+		//WaitNextEvent(keyDownMask,&pullKey,0,NULL);
     	
     	if (!FloppySelectImage())	//prompt user to insert a disk
 			return kFloppyError;
@@ -900,7 +900,7 @@ static int floppy_read_block(unsigned char *buf, int track, int sector)
 //	SetFPos(FloppyActiveFd, fsFromStart, offset);
 	len=256;
     //FSRead(FloppyActiveFd, &len, buf);
-    len = fread(FloppyActiveFd,len,1,buf);
+    len = fread(buf,len,1,FloppyActiveFd);
 	if (len<256)
 		{
 //
