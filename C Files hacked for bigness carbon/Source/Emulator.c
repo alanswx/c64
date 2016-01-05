@@ -134,7 +134,7 @@ void EmulatorRun(void)
 			if (gCombugState.gtoValue==gPCRegister)
 				{
 				CombugScrollPrintf("Reached Destination Address");
-				SelectWindow(gCombugWindow);
+			//	SelectWindow(gCombugWindow);
 				DrawCombugWindow();
 				gCombugState.gto=0;
 				gCombugState.step=0;

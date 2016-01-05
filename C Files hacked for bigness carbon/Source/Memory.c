@@ -31,7 +31,8 @@ extern	Boolean	gVerbose;
 #define	kROMResType			'ROM '
 #define	kBasicROMResID		128
 #define	kCharROMResID		129
-#define	kKernalROMResID	130
+//#define	kKernalROMResID	130
+#define	kKernalROMResID	131
 #define	LOCALDEBUG			0
 
 
@@ -352,6 +353,9 @@ unsigned long RAMRead(unsigned long address)
 //#endif
 {
     fprintf(stderr,"RAMRead (unmolested) address %lx \n",address);
+    fprintf(stderr,"Memory mode switch: PDR = %lX\n",(long int)gRAMBlock[1]&0x07);
+    fprintf(stderr,"does gMemRead=Read111? %d\n ",( gMemRead == Read111));
+
 	return gRAMBlock[address];
 }
 
