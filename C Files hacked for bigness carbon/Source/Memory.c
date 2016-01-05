@@ -352,9 +352,9 @@ void InitPageTables(void)
 unsigned long RAMRead(unsigned long address)
 //#endif
 {
-    fprintf(stderr,"RAMRead (unmolested) address %lx \n",address);
-    fprintf(stderr,"Memory mode switch: PDR = %lX\n",(long int)gRAMBlock[1]&0x07);
-    fprintf(stderr,"does gMemRead=Read111? %d\n ",( gMemRead == Read111));
+ //   fprintf(stderr,"RAMRead (unmolested) address %lx \n",address);
+ //   fprintf(stderr,"Memory mode switch: PDR = %lX\n",(long int)gRAMBlock[1]&0x07);
+ //   fprintf(stderr,"does gMemRead=Read111? %d\n ",( gMemRead == Read111));
 
 	return gRAMBlock[address];
 }
