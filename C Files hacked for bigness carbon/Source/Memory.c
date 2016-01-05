@@ -419,7 +419,7 @@ void PageZeroWrite(unsigned long address,unsigned long value)
 unsigned long BasicROMRead(unsigned long address)
 //#endif
 {
-    fprintf(stderr,"BasicROMRead  address %lx %lx\n",address,address-0xA000);
+    //fprintf(stderr,"BasicROMRead  address %lx %lx\n",address,address-0xA000);
 	return gBasicROM[address-0xA000];
 }
 

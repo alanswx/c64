@@ -102,7 +102,7 @@ static byte floppy_find_buffer[256];
 static int floppy_find_current_track;
 static int floppy_find_current_sector;
 
-FILE *     FloppyActiveFd = -1;
+FILE *     FloppyActiveFILE = NULL;
 
 static char *floppy_find_name;
 static int floppy_find_length;
@@ -205,11 +205,14 @@ byte Open1541(char *name, int length, int secondary)
     byte *slot;
     int     i;
 
+    fprintf(stderr,"Open1541 %p\n",FloppyActiveFILE);
     /*
      * No floppy in drive ?
      */
-    if (FloppyActiveFd < 0)
+    if (FloppyActiveFILE == NULL)
     	{
+            fprintf(stderr," no floppy in drive - let's ask for one\n");
+            fflush (stderr);
 		//EventRecord			pullKey;
 		
 		//pull key out of event queue
@@ -217,7 +220,7 @@ byte Open1541(char *name, int length, int secondary)
     	
     	if (!FloppySelectImage())	//prompt user to insert a disk
 			return kFloppyError;
-    	if (FloppyActiveFd < 0)		//check to see if there still isn't a valid disk
+    	if (FloppyActiveFILE ==NULL)		//check to see if there still isn't a valid disk
 			return	kFloppyError;	
     	}
 
@@ -893,26 +896,33 @@ static int floppy_read_block(unsigned char *buf, int track, int sector)
 {
 	long offset, len;
 
-	offset=offset_from_track_and_sector(track, sector);
-	if (offset<0) return -1;
 
-    int result = fseek(FloppyActiveFd,  offset, SEEK_SET);
+    
+	offset=offset_from_track_and_sector(track, sector);
+    if (offset<0) return -1;
+
+    fprintf(stderr,"floppy_read_block track %d sector %d offset %d\n",track,sector,offset);
+    
+    int result = fseek(FloppyActiveFILE,  offset, SEEK_SET);
+    fprintf(stderr,"fseek result %d\n",result);
 //	SetFPos(FloppyActiveFd, fsFromStart, offset);
 	len=256;
     //FSRead(FloppyActiveFd, &len, buf);
-    len = fread(buf,len,1,FloppyActiveFd);
+    len = fread(buf,1,len,FloppyActiveFILE);
+    fprintf(stderr,"fread %ld\n",len);
 	if (len<256)
 		{
 //
 //	we should fix this to cause a commodore error
 //
 //		DebugStr("\pFloppy read error");
+            fprintf(stderr,"Floppy Read Error!\n");
 		debug_window_printf("Floppy Read Error!");
 		floppy_close_all_channels();
 	
-		if (floppyInDrive) fclose(FloppyActiveFd);
+		if (floppyInDrive) fclose(FloppyActiveFILE);
 		floppyInDrive=0;
-		FloppyActiveFd=-1;
+		FloppyActiveFILE=NULL;
 		return -1;
 		
 		}
@@ -931,11 +941,11 @@ static int floppy_write_block(unsigned char *buf, int track, int sector)
 	offset=offset_from_track_and_sector(track, sector);
 	if (offset<0) return -1;
 
-    fseek(FloppyActiveFd,offset, SEEK_SET);
+    fseek(FloppyActiveFILE,offset, SEEK_SET);
 //	SetFPos(FloppyActiveFd, fsFromStart, offset);
 	len=256;
 	//FSWrite(FloppyActiveFd, &len, buf);
-    len = fwrite(buf,len,1,FloppyActiveFd);
+    len = fwrite(buf,1,len,FloppyActiveFILE);
 	if (len<256) debug_window_printf("Floppy write error");
 	return 0;
 }
@@ -1512,17 +1522,19 @@ static int do_block_command(char command, char *buffer)
 
 void AttachFloppyImage(nfdchar_t *spec)
 {
+    fprintf(stderr,"AttachFloppyImage\n");
 	floppy_close_all_channels();
 
-	if (floppyInDrive) fclose(FloppyActiveFd);
+	if (floppyInDrive) fclose(FloppyActiveFILE);
 	floppyInDrive=0;
+    FloppyActiveFILE=NULL;
 
 	if (spec==NULL)
 	{
 		floppyInDrive=0;
 		return;
 	}
-	if ((FloppyActiveFd = fopen(spec, "rw"))==NULL)
+	if ((FloppyActiveFILE = fopen(spec, "rw"))==NULL)
 	{
 		floppyInDrive=0;
 		return;
@@ -1591,6 +1603,9 @@ void FloppyCreateImage(void)
 
 Boolean FloppySelectImage(void)
 {
+    fprintf(stderr,"FloppySelectImage\n");
+    fflush (stderr);
+
 //	FSSpec theFileSpec;
 //	StandardFileReply reply;
 //	SFTypeList			types;
@@ -1617,6 +1632,7 @@ Boolean FloppySelectImage(void)
 void FloppyCopyTo(void)
 {
     // AJS fix this
+    fprintf(stderr,"***** FloppyCopyTo\n");
 #if 0
 //	StandardFileReply reply;
 	short fNum;
