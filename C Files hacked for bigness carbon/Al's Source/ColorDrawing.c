@@ -289,7 +289,7 @@ if (theActiveBits!=NULL)
 {
     //SDL_FillRect(theSurface, NULL, SDL_MapRGB(theSurface->format, 255, 0, 0));
     SDL_LockSurface(theSurface);
-    int pixel=0; for (int i=0;i<16;i++) for (int j=0;j<16;j++) theActiveBits[pixel++]=i;
+    //int pixel=0; for (int i=0;i<16;i++) for (int j=0;j<16;j++) theActiveBits[pixel++]=i;
     memcpy(theSurface->pixels,theActiveBits,theSurface->w*theSurface->h);
 
     SDL_Texture *sdlTexture = SDL_CreateTextureFromSurface(sdlRenderer,theSurface);
@@ -426,7 +426,7 @@ void	OpenCommodoreMonitorWindow ()
     int width = 320;
     int height = 200;
     
-    theMonitorWindow = SDL_CreateWindow( "C64 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN  );
+    theMonitorWindow = SDL_CreateWindow( "C64 Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width*2, height*2, SDL_WINDOW_SHOWN  );
     sdlRenderer= SDL_CreateRenderer(theMonitorWindow, -1, 0);
 
     
