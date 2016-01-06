@@ -593,6 +593,7 @@
 				GCC_PREFIX_HEADER = c64carbon_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.c64carbon;
 				PRODUCT_NAME = c64carbon;
 				SDKROOT = macosx;
@@ -615,6 +616,7 @@
 				GCC_PREFIX_HEADER = c64carbon_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.c64carbon;
 				PRODUCT_NAME = c64carbon;
 				SDKROOT = macosx;
