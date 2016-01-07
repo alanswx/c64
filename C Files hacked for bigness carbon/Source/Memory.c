@@ -194,8 +194,8 @@ void InitPageTables(void)
 	long	*temp;
 #endif
     
-    fprintf(stderr,"InitPageTables\n");
-    fprintf(stderr,"Memory mode switch: PDR = %lX\n",(long int)gRAMBlock[1]&0x07);
+    //fprintf(stderr,"InitPageTables\n");
+    //fprintf(stderr,"Memory mode switch: PDR = %lX\n",(long int)gRAMBlock[1]&0x07);
    //debug_window_printf("Memory mode switch: PDR = %lX",(long int)gRAMBlock[1]&0x07);
 	switch(gRAMBlock[1]&0x07)
 	{

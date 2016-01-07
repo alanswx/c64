@@ -184,6 +184,8 @@ void UpdateSpeedWindow(float speed)
 	GrafPtr	oldPort;
 	char		s[20];
 	
+    fprintf(stderr,"%f MHz  \n",speed);
+    
 	return; // AJS
 #if 0
 	sprintf(s,"%f MHz  ",speed);

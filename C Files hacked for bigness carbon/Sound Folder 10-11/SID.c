@@ -6,26 +6,7 @@
 #include "DebugWindow.h"
 #include "SID.h"
 
-#define TURNSIDOFF 1
-
-#if 1
-void SIDWrite(unsigned long address,unsigned long value)
-{
-    
-}
-unsigned long SIDRead(unsigned long address)
-{
-    return 0;
-}
-void DisposeSounds (void)
-{
-
-}
-void ToggleSound (void)
-{
-
-}
-#else
+#include <SDL2/SDL.h>
 
 /*local globals*/
 EGStage	stage1;
@@ -36,7 +17,9 @@ short	oldLevel2,newLevel2;
 //no clue about these declarations
 short	SndError;
 unsigned short	V1Gate;
+#if 0
 SCStatus	mySCStatus;
+#endif
 
 long	RndSeed;
 
@@ -51,6 +34,598 @@ long	RndSeed;
 unsigned char	gSIDReg[32];
 Ptr gVoice1 = NULL, gVoice2 = NULL, gVoice3 = NULL;
 //SndDoubleBackUPP		gDoubleBackProcUPP=NULL; // AJS
+
+
+#define TURNSIDOFF 1
+
+#if 1
+
+#if 0
+void SIDWrite(unsigned long address,unsigned long value)
+{
+    
+}
+unsigned long SIDRead(unsigned long address)
+{
+    return 0;
+}
+#endif
+
+void DisposeSounds (void)
+{
+
+}
+void ToggleSound (void)
+{
+
+}
+
+
+static void calc_buffer(void *userdata, uint8 *buf, int count)
+{
+    register	unsigned char	*base1,*base2,*base3;
+    register	Ptr	dst;
+    
+    register long	index1, index2,index3;
+    register	unsigned	long	frequency1,frequency2,frequency3;
+    short	scale1[256],scale2[256],scale3[256];
+    register short *scale1Ptr,*scale2Ptr,*scale3Ptr;
+    register short *endscale1,*endscale2,*endscale3;
+    register	long	i1,i2,i3;
+    
+    fprintf(stderr,"calc_buffer InUse: %d\n",InUse);
+    
+    if (!InUse)
+    {
+        //Get the frequency of voices
+        frequency1 = (unsigned long)
+        (((float)(((float)((unsigned short)gSIDReg[0x00] | ((unsigned short)gSIDReg[0x01] << 8)) * kFrequencyConstant)/kBaseFrequency))
+         * kShiftAmount);
+        frequency2 = (unsigned long)
+        (((float)(((float)((unsigned short)gSIDReg[0x07] | ((unsigned short)gSIDReg[0x08] << 8)) * kFrequencyConstant)/kBaseFrequency))
+         * kShiftAmount);
+        frequency3 = (unsigned long)
+        (((float)(((float)((unsigned short)gSIDReg[0x0E] | ((unsigned short)gSIDReg[0x0F] << 8)) * kFrequencyConstant)/kBaseFrequency))
+         * kShiftAmount);
+        
+        
+        //Get the waveform of voices
+        base1 = (unsigned char*)gVoice1;
+        base2 = (unsigned char*)gVoice2;
+        base3 = (unsigned char*)gVoice3;
+        
+        scale1Ptr = &scale1[0];
+        scale2Ptr = &scale2[0];
+        scale3Ptr = &scale3[0];
+        
+        endscale1 = scale1+256;
+        endscale2 = scale2+256;
+        endscale3 = scale3+256;
+        
+        //Voice 1!
+        if (gStage1 == Attack)
+        {
+            while ((scale1Ptr < endscale1) && (gCurVol1 < /*256 << 16*/256 * kShiftAmount))
+            {
+                *scale1Ptr++ = gCurVol1 >> 16;
+                gCurVol1 += gEnvVal1;
+            }
+            
+            if (gCurVol1 >= 255 * kShiftAmount)
+            {
+                gCurVol1 = 255 << 16;
+                gEnvVal1 = gDecayVal1;
+                gStage1 = Decay;
+            }
+        }
+        
+        if (gStage1 == Decay)
+        {
+            while ((scale1Ptr < endscale1) && ((gCurVol1 >> 16) > gSusLev1))
+            {
+                *scale1Ptr++ = gCurVol1 >> 16;
+                gCurVol1 += gEnvVal1;
+            }
+            
+            if ((gCurVol1 >> 16) < gSusLev1)
+            {
+                gCurVol1 = gSusLev1 << 16;
+                gEnvVal1 = 0;
+                gStage1 = Sustain;
+            }
+        }
+        
+        while (scale1Ptr < endscale1)
+        {
+            gCurVol1 += gEnvVal1;
+            *scale1Ptr++ = gCurVol1 >> 16;
+            if (gCurVol1 < 0)
+            {
+                gCurVol1 = 0;
+                scale1Ptr--;
+                *scale1Ptr++ = 0;
+                gEnvVal1 = 0;
+            }
+        }
+        
+        //Voice 2!
+        if (gStage2 == Attack)
+        {
+            while ((scale2Ptr < endscale2) && (gCurVol2 < 256 * kShiftAmount/*<< 16*/))
+            {
+                *scale2Ptr++ = gCurVol2 >> 16;
+                gCurVol2 += gEnvVal2;
+            }
+            
+            if (gCurVol2 >= 255 * kShiftAmount)
+            {
+                gCurVol2 = 255 << 16;
+                gEnvVal2 = gDecayVal2;
+                gStage2 = Decay;
+            }
+        }
+        
+        if (gStage2 == Decay)
+        {
+            while ((scale2Ptr < endscale2) && ((gCurVol2 >> 16) > gSusLev2))
+            {
+                *scale2Ptr++ = gCurVol2 >> 16;
+                gCurVol2 += gEnvVal2;
+            }
+            
+            if ((gCurVol2 >> 16) < gSusLev2)
+            {
+                gCurVol2 = gSusLev2 << 16;
+                gEnvVal2 = 0;
+                gStage2 = Sustain;
+            }
+        }
+        
+        while (scale2Ptr < endscale2)
+        {
+            gCurVol2 += gEnvVal2;
+            *scale2Ptr++ = gCurVol2 >> 16;
+            if (gCurVol2 < 0)
+            {
+                gCurVol2 = 0;
+                scale2Ptr--;
+                *scale2Ptr++ = 0;
+                gEnvVal2 = 0;
+            }
+        }
+        
+        //Voice 3!
+        if (gStage3 == Attack)
+        {
+            while ((scale3Ptr < endscale3) && (gCurVol3 < 256 * kShiftAmount /*<< 16*/))
+            {
+                *scale3Ptr++ = gCurVol3 >> 16;
+                gCurVol3 += gEnvVal3;
+            }
+            
+            if (gCurVol3 >= 255 * kShiftAmount)
+            {
+                gCurVol3 = 255 << 16;
+                gEnvVal3 = gDecayVal3;
+                gStage3 = Decay;
+            }
+        }
+        
+        if (gStage3 == Decay)
+        {
+            while ((scale3Ptr < endscale3) && ((gCurVol3 >> 16) > gSusLev3))
+            {
+                *scale3Ptr++ = gCurVol3 >> 16;
+                gCurVol3 += gEnvVal3;
+            }
+            
+            if ((gCurVol3 >> 16) < gSusLev3)
+            {
+                gCurVol3 = gSusLev3 << 16;
+                gEnvVal3 = 0;
+                gStage3 = Sustain;
+            }
+        }
+        
+        while (scale3Ptr < endscale3)
+        {
+            gCurVol3 += gEnvVal3;
+            *scale3Ptr++ = gCurVol3 >> 16;
+            if (gCurVol3 < 0)
+            {
+                gCurVol3 = 0;
+                scale3Ptr--;
+                *scale3Ptr++ = 0;
+                gEnvVal3 = 0;
+            }
+        }
+        
+        // For reading later.
+        gSIDReg[0x1C] = (unsigned char)(gCurVol3 >> 16);
+        
+        index1 = gLastPhase1 << 16;
+        index2 = gLastPhase2 << 16;
+        index3 = gLastPhase3 << 16;
+        dst = buf;//&doubleBuffer->dbSoundData[0];
+        
+        scale1Ptr = &scale1[0];
+        scale2Ptr = &scale2[0];
+        scale3Ptr = &scale3[0];
+        
+        //000
+        if ((!gRingMod1) && (!gRingMod2) && (!gRingMod3))
+        {
+            while (scale1Ptr < endscale1)
+            {
+                i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]]));
+                i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]]));
+                i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]]));
+                
+                *dst++ = (i1+i2+i3) + 0x80;
+                
+                index1 += frequency1;
+                index2 += frequency2;
+                index3 += frequency3;
+            }
+        }
+        //001
+        else if ((!gRingMod1) && (!gRingMod2) && (gRingMod3))
+        {
+            while (scale1Ptr < endscale1)
+            {
+                i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]]));
+                i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]]));
+                i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]])
+                      * ((long)(*volumes[255])[base2[(index2 >> 16) & kMod256Mask]]))>>8;
+                
+                *dst++ = (i1+i2+i3) + 0x80;
+                
+                index1 += frequency1;
+                index2 += frequency2;
+                index3 += frequency3;
+            }
+        }
+        //010
+        else if ((!gRingMod1) && (gRingMod2) && (!gRingMod3))
+        {
+            while (scale1Ptr < endscale1)
+            {
+                i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]]));
+                i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]])
+                      * ((long)(*volumes[255])[base1[(index1 >> 16) & kMod256Mask]]))>>8;
+                i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]]));
+                
+                *dst++ = (i1+i2+i3) + 0x80;
+                
+                index1 += frequency1;
+                index2 += frequency2;
+                index3 += frequency3;
+            }
+        }
+        //011
+        else if ((!gRingMod1) && (gRingMod2) && (gRingMod3))
+        {
+            while (scale1Ptr < endscale1)
+            {
+                i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]]));
+                i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]])
+                      * ((long)(*volumes[255])[base1[(index1 >> 16) & kMod256Mask]]))>>8;
+                i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]])
+                      * ((long)(*volumes[255])[base2[(index2 >> 16) & kMod256Mask]]))>>8;
+                
+                *dst++ = (i1+i2+i3) + 0x80;
+                
+                index1 += frequency1;
+                index2 += frequency2;
+                index3 += frequency3;
+            }
+        }
+        //100
+        else if ((gRingMod1) && (!gRingMod2) && (!gRingMod3))
+        {
+            while (scale1Ptr < endscale1)
+            {
+                i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]])
+                      * ((long)(*volumes[255])[base3[(index3 >> 16) & kMod256Mask]]))>>8;
+                i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]]));
+                i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]]));
+                
+                *dst++ = (i1+i2+i3) + 0x80;
+                
+                index1 += frequency1;
+                index2 += frequency2;
+                index3 += frequency3;
+            }
+        }
+        //101
+        else if ((gRingMod1) && (!gRingMod2) && (gRingMod3))
+        {
+            while (scale1Ptr < endscale1)
+            {
+                i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]])
+                      * ((long)(*volumes[255])[base3[(index3 >> 16) & kMod256Mask]]))>>8;
+                i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]]));
+                i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]])
+                      * ((long)(*volumes[255])[base2[(index2 >> 16) & kMod256Mask]]))>>8;
+                
+                *dst++ = (i1+i2+i3) + 0x80;
+                
+                index1 += frequency1;
+                index2 += frequency2;
+                index3 += frequency3;
+            }
+        }
+        //110
+        else if ((gRingMod1) && (gRingMod2) && (!gRingMod3))
+        {
+            while (scale1Ptr < endscale1)
+            {
+                i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]])
+                      * ((long)(*volumes[255])[base3[(index3 >> 16) & kMod256Mask]]))>>8;
+                i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]]) 
+                      * ((long)(*volumes[255])[base1[(index1 >> 16) & kMod256Mask]]))>>8;
+                i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]]));
+                
+                *dst++ = (i1+i2+i3) + 0x80;
+                
+                index1 += frequency1;
+                index2 += frequency2;
+                index3 += frequency3;
+            }
+        }
+        //111
+        else if ((gRingMod1) && (gRingMod2) && (gRingMod3))
+        {
+            while (scale1Ptr < endscale1)
+            {
+                i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]]) 
+                      * ((long)(*volumes[255])[base3[(index3 >> 16) & kMod256Mask]]))>>8;
+                i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]]) 
+                      * ((long)(*volumes[255])[base1[(index1 >> 16) & kMod256Mask]]))>>8;
+                i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]]) 
+                      * ((long)(*volumes[255])[base2[(index2 >> 16) & kMod256Mask]]))>>8;
+                
+                *dst++ = (i1+i2+i3) + 0x80;
+                
+                index1 += frequency1;
+                index2 += frequency2;
+                index3 += frequency3;
+            }
+        }
+        
+        
+        /*		while (scale1Ptr < endscale1)
+         {
+         if (gRingMod1)
+         i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]]) 
+         * ((long)(*volumes[255])[base3[(index3 >> 16) & kMod256Mask]]))>>8;
+         else
+         i1 = ((long)((*volumes[*scale1Ptr++])[base1[(index1 >> 16) & kMod256Mask]]));
+         
+         if (gRingMod2)
+         i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]]) 
+         * ((long)(*volumes[255])[base1[(index1 >> 16) & kMod256Mask]]))>>8;
+         else
+         i2 = ((long)((*volumes[*scale2Ptr++])[base2[(index2 >> 16) & kMod256Mask]]));
+         
+         if (gRingMod3)
+         i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]]) 
+         * ((long)(*volumes[255])[base2[(index2 >> 16) & kMod256Mask]]))>>8;
+         else
+         i3 = ((long)((*volumes[*scale3Ptr++])[base3[(index3 >> 16) & kMod256Mask]]));
+         
+         *dst++ = (i1+i2+i3) + 0x80;
+         
+         index1 += frequency1;
+         index2 += frequency2;
+         index3 += frequency3;
+         }
+         */
+        gLastPhase1 = (long)(index1 >> 16) % 256;
+        gLastPhase2 = (long)(index2 >> 16) % 256;
+        gLastPhase3 = (long)(index3 >> 16) % 256;
+        
+   //     doubleBuffer->dbNumFrames = (long)kBufferSize;
+        
+        /* Always ready because we stop it with a quiet command */
+     //   doubleBuffer->dbFlags |= dbBufferReady;
+        
+        /* This sets the Read-only values of the SID*/
+        gSIDReg[0x1B] = (unsigned char)((*volumes[255])[base3[(index3 >> 16) % 256]] + 0x80); // need the + 0x80?
+        
+    }
+    else
+    {
+     //   doubleBuffer->dbNumFrames = 0L;
+      //  doubleBuffer->dbFlags |= dbBufferReady;
+    }
+
+}
+
+
+// Desired and obtained audio formats
+static SDL_AudioSpec desired, obtained;
+
+int SoundInitialize (void)
+{
+    OSErr 	sndErr;
+    float	delta,angle;
+    short		i,t,j;
+    short	volume,value;
+    Ptr		g0,g1,g2,g3;
+
+    
+    fprintf(stderr,"SoundInitialize\n");
+
+    for (i=0;i<256;++i)
+    {
+        volumes [i] = (vol_array*)malloc (256);
+        for (j=0;j<256;++j)
+        {
+            (*volumes[i])[j] = (char)(((float)i/255.0 * (j-127)))/3;
+        }
+    }
+    
+    // Allocate Timbres
+    if (!(gTimbres[0] = malloc (kBufferSize)))
+        return (-1);
+    
+    if (!(gTimbres[1] = malloc (kBufferSize)))
+        return (-1);
+    
+    if (!(gTimbres[2] = calloc (kBufferSize*2,1)))
+        return (-1);
+    
+    if (!(gTimbres[3] = malloc (kBufferSize)))
+        return (-1);
+    
+    //Fill the space we allocated with sound samples
+    //GetDateTime ((unsigned long*)&RndSeed);
+    // AJS - this is bad?
+ //   RndSeed = 10;
+    
+    for (i=0,g0=gTimbres[0],g1=gTimbres[1],g2=gTimbres[2],g3=gTimbres[3];
+         i<kSampleLen;
+         ++i,++g0,++g1,++g2,++g3)
+    {
+        //SawTooth
+        if (i < kSampleLen)
+        /*(gTimbres[1])[i]*/*g1 = (unsigned char)(255 - i);
+        
+        //Triangle
+        if (i < kSampleLen/4)
+        {
+            (gTimbres[0])[i] = 0x80 + (i*2);
+#if	0
+            //THIS CAUSES A BAD CRASH
+            (gTimbres[0])[kSampleLen - i] = 0x80 - (i*2);
+#endif
+        }
+        else if (i < kSampleLen - kSampleLen/4)
+        {
+            (gTimbres[0])[i] = 255 - ((i-(kSampleLen/4))*2);
+        }
+        
+        //Pulse
+        /*(gTimbres[2])[i]*/*g2 = 255;
+        
+        //Noise, kind of. We'll work on this.
+        /*(gTimbres[3])[i]*/*g3 = rand() % 256;
+    }
+   
+    desired.samples = 1024;
+    desired.freq = obtained.freq = 44100;
+    desired.format = obtained.format = false ? AUDIO_S16SYS : AUDIO_U8;
+    desired.channels = obtained.channels = true ? 2 : 1;
+#if 0
+    enable_filters = true;
+    master_volume = 0x100;
+    v1_volume = 0x100;
+    v2_volume = 0x100;
+    v3_volume = 0x100;
+    v4_volume = 0x100;
+    v1_panning = -0x40;
+    v2_panning = 0;
+    v3_panning = 0x40;
+    v4_panning = 0;
+    dual_sep = 0x80;
+    
+    
+    PrefsAddString("victype", "6569");
+    PrefsAddString("sidtype", "6581");
+    PrefsAddInt32("samplerate", 44100);
+    PrefsAddBool("audio16bit", true);
+    PrefsAddBool("stereo", true);
+    PrefsAddBool("filters", true);
+    PrefsAddBool("dualsid", false);
+    PrefsAddInt32("audioeffect", 2);
+    PrefsAddInt32("revdelay", 125);
+    PrefsAddInt32("revfeedback", 0x50);
+    PrefsAddInt32("volume", 0x100);
+    PrefsAddInt32("v1volume", 0x100);
+    PrefsAddInt32("v1pan", -0x40);
+    PrefsAddInt32("v2volume", 0x100);
+    PrefsAddInt32("v2pan", 0);
+    PrefsAddInt32("v3volume", 0x100);
+    PrefsAddInt32("v3pan", 0x40);
+    PrefsAddInt32("v4volume", 0x100);
+    PrefsAddInt32("v4pan", 0);
+    PrefsAddInt32("dualsep", 0x80);
+    PrefsAddBool("cwsid", false);
+    PrefsAddString("siddev", "/dev/sid");
+    PrefsAddInt32("speed", 100);
+#endif
+    
+#if 0
+    /* Setup Channel(s) */
+    sndErr = SndNewChannel (&gVoices,sampledSynth/*+initNoInterp*/,initMono,nil);
+    
+    if (sndErr == resProblem)
+        return (kMissingResource);
+    else if (sndErr == badChannel)
+        return (kOutOfMemory);			/* This should return a more specific error */
+    
+    gSndHeaders.dbhNumChannels = 1;
+    gSndHeaders.dbhSampleSize = 8;
+    gSndHeaders.dbhCompressionID = 0;
+    gSndHeaders.dbhPacketSize = 0;
+    gSndHeaders.dbhSampleRate = /*rate11khz*/rate22khz;
+    if (!(gSndHeaders.dbhBufferPtr[0] = (SndDoubleBufferPtr) NewPtr (kBufferSize + sizeof (SndDoubleBuffer))) )
+        return (kOutOfMemory);
+    if (!(gSndHeaders.dbhBufferPtr[1] = (SndDoubleBufferPtr) NewPtr (kBufferSize + sizeof (SndDoubleBuffer))) )
+        return (kOutOfMemory);
+    
+    gDoubleBackProcUPP=NewSndDoubleBackProc(DoubleBackProc);
+    if (gDoubleBackProcUPP==NULL)
+        return (kOutOfMemory);
+    
+    gSndHeaders.dbhDoubleBack = gDoubleBackProcUPP;
+    
+    gSndHeaders.dbhBufferPtr[0]->dbNumFrames = 0;
+    gSndHeaders.dbhBufferPtr[0]->dbFlags = 0;
+    gSndHeaders.dbhBufferPtr[0]->dbUserInfo[0] = SetCurrentA5();
+    gSndHeaders.dbhBufferPtr[0]->dbUserInfo[1] = 0L;
+    
+    gSndHeaders.dbhBufferPtr[1]->dbNumFrames = 0;
+    gSndHeaders.dbhBufferPtr[1]->dbFlags = 0;
+    gSndHeaders.dbhBufferPtr[1]->dbUserInfo[0] = SetCurrentA5();
+    gSndHeaders.dbhBufferPtr[1]->dbUserInfo[1] = 0L;
+    
+    AmpCommand.cmd = ampCmd;
+    AmpCommand.param1 = 0;
+    AmpCommand.param2 = 0;
+    
+    StopCommand.cmd = quietCmd;
+    StopCommand.param1 = 0;
+    StopCommand.param2 = 0;
+    
+    gVoice1 = gTimbres[0];
+    DoubleBackProc (gVoices, gSndHeaders.dbhBufferPtr[0]);
+    DoubleBackProc (gVoices, gSndHeaders.dbhBufferPtr[1]);
+    SndError = SndPlayDoubleBuffer (gVoices,&gSndHeaders);
+#endif
+#endif
+    gVoice1 = gTimbres[0];
+    gVoice2 = gTimbres[1];
+    gVoice3 = gTimbres[2];
+
+    return (noErr);
+    fprintf(stderr,"SoundInitialize\n");
+    // Desired and obtained audio formats
+
+    desired.callback = calc_buffer;
+    desired.userdata = NULL;
+
+    if (SDL_OpenAudio(&desired, &obtained) < 0) {
+        fprintf(stderr,"audio error\n");
+    }
+    fprintf(stderr,"obtained: %p",obtained.callback);
+    SDL_PauseAudio(false);
+
+    return noErr;
+}
+
+
 
 
 
@@ -306,8 +881,9 @@ void SIDWrite(unsigned long address,unsigned long value)
 		case 0x17:		//	Filter Resonance Control/Voice Input Control
 			break;
 		case 0x18:		//	Select Filter Mode and Volume
-			AmpCommand.param1 = (val & kVolumeMask) * 17;
-			SndDoImmediate (gVoices,&AmpCommand);
+		//	AmpCommand.param1 = (val & kVolumeMask) * 17;
+		//	SndDoImmediate (gVoices,&AmpCommand);
+            //AJS FIX
 			break;
 		case 0x19:		//	Analog/Digital Converter: Game Paddle 1 (0-255)
 			/* These last 4 should not set the values for writes. */
@@ -383,8 +959,9 @@ unsigned long SIDRead(unsigned long address)
 			BitMap bmap;
 
 			/* Could maybe get mouse position for this and the next one. */
-			GetMouse (&P);
-			GetQDGlobalsScreenBits(&bmap);
+            // AJS - need to fix game paddle
+			//GetMouse (&P);
+			//GetQDGlobalsScreenBits(&bmap);
 			bounds = bmap.bounds;
 
 			val = (P.h % bounds.right) * 255;
@@ -394,9 +971,10 @@ unsigned long SIDRead(unsigned long address)
 		{
 		   Rect bounds;
 			BitMap bmap;
-			GetQDGlobalsScreenBits(&bmap);
+            // AJS - need to fix game paddle
+			//GetQDGlobalsScreenBits(&bmap);
 			bounds = bmap.bounds;
-			GetMouse (&P);
+			//GetMouse (&P);
 			val = (P.v % bounds.bottom) * 255;
 			}
 			break;
@@ -414,6 +992,8 @@ unsigned long SIDRead(unsigned long address)
 	gSIDReg[reg] = val;
 	return val;
 }
+
+
 
 #if (TURNSIDOFF==0)
 
@@ -801,6 +1381,7 @@ pascal void DoubleBackProc (SndChannelPtr chan, SndDoubleBufferPtr doubleBuffer)
 }
 #endif
 
+#if 0
 //Setup Sounds
 int SoundInitialize (void)
 {

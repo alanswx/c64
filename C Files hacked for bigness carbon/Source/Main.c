@@ -116,7 +116,8 @@ void InitApplication(void)
 	InitDevices ();
 	InitJoystick();
 	InitCombug();
-//	if (SoundInitialize()!=0)
+	if (SoundInitialize()!=0)
+        fprintf(stderr,"SoundInitialize Failed\n");
 //		DebugStr("\pMemory was not allocated");
 
 

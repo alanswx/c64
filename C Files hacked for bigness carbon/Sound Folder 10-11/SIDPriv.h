@@ -1,6 +1,6 @@
 /*SIDPriv.h*/
 
-#if 0
+#if 1
 
 /* Control Register Masks */
 #define	kGateMask		0x01
@@ -62,11 +62,11 @@ typedef char vol_array[256];
 //pascal	void	DoubleBackProc 	(SndChannelPtr, SndDoubleBufferPtr); // AJS
 
 /* Globals */
-SndChannelPtr	gVoices;
+//SndChannelPtr	gVoices;
 Ptr				gTimbres[kMaxTimbres];
 //SndDoubleBufferHeader		gSndHeaders; // AJS
-SndCommand		AmpCommand,
-					StopCommand;
+//SndCommand		AmpCommand,
+//					StopCommand;
 									
 float	susMults [16] = {		6,
 									24,
