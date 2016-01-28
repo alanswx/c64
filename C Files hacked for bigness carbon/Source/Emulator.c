@@ -99,7 +99,7 @@ void ResetEmulator(void)
 		debug_window_printf("");
 		debug_window_printf("--> RESET ");
 		debug_window_printf("");
-	#endif	DEBUG
+	#endif	//DEBUG
 	
 //	debug_window_printf("Value of TV flag: %2lX",(long int)MEMREADBYTE(0x02A6));
 	
